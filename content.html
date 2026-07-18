@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danganmake Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="bg"></div>
+
+    <div class="container">
+        <div class="header">
+            <img src="assets/img/logo.png" alt="" id="logo">
+            <img id="loadermonokuma" src="assets/img/Monokuma_loader.png" alt="">
+            <div class="language">
+                <img src="assets/img/opt_eng.png" alt="" id="lang">
+            </div>
+        </div>
+        
+        <div class="content"> 
+            <nav class="side">
+                <ul>
+                    <li>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_intro">Introduction</a>
+                        
+                        <div class="sub-menu">
+                            <a class="url_bullets" href="#what-is-danganmake" data-i18n="sub_intro_what">What is Danganmake?</a>
+                            <a class="url_bullets" href="#asynchronous-functions" data-i18n="sub_intro_async">What is an asynchronous function?</a>
+                            <a class="url_bullets" href="#callable-functions" data-i18n="sub_intro_call">Callable functions</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_start">Get Started</a>
+
+                        <div class="sub-menu">
+                            <a class="url_bullets" href="#Controls" data-i18n="sub_start_ctrl">Controls</a>
+                            <a class="url_bullets" href="#how-to-create-your-mod" data-i18n="sub_start_mod">How to create your mod</a>
+                            <a class="url_bullets" href="#how-editors-work" data-i18n="sub_start_ed">How Editors work</a>
+                            <a class="url_bullets" href="#where-your-assets-go" data-i18n="sub_start_assets">Where your assets go</a>
+                            <a class="url_bullets" href="#where-your-characters-go" data-i18n="sub_start_chars">Where your characters go</a>
+                            <a class="url_bullets" href="#counter-and-consent" data-i18n="sub_start_cc">Counter and Consent</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_events">Event terms</a>
+
+                        <div class="sub-menu">
+                            <a class="url_bullets" href="#how-editors-work" data-i18n="sub_ev_gs">GlobalSound Events</a>
+                            <a class="url_bullets" href="#asynchronous-functions" data-i18n="sub_ev_cs">CharacterScript Events</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_ev_cl">CharacterList Events</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_2d">2D Editor</a>
+
+                        <div class="sub-menu">
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_shared_exp">Character Expressions</a>
+                            <a class="url_bullets" href="#CharacterVoices" data-i18n="sub_shared_voice">Character Voices</a>
+                            <a class="url_bullets" href="#CharacterSounds" data-i18n="sub_shared_snd">Character Sounds</a>
+                            <a class="url_bullets" href="#BeforeAndAfter" data-i18n="sub_shared_ba">Before and After</a>
+                            <a class="url_bullets" href="#how-editors-work" data-i18n="sub_shared_act">How to use actions scenes</a>
+                            <a class="url_bullets" href="#asynchronous-functions" data-i18n="sub_shared_mem">How to use Memory block</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_bg">Change Background</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_song">Change Song</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_court">Show 3D Court</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_img">Set Images</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_vid">Set Videos</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_3d">3D Editor</a>
+
+                        <div class="sub-menu">
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_shared_exp">Character Expressions</a>
+                            <a class="url_bullets" href="#CharacterVoices" data-i18n="sub_shared_voice">Character Voices</a>
+                            <a class="url_bullets" href="#CharacterSounds" data-i18n="sub_shared_snd">Character Sounds</a>
+                            <a class="url_bullets" href="#BeforeAndAfter" data-i18n="sub_shared_ba">Before and After</a>
+                            <a class="url_bullets" href="#how-editors-work" data-i18n="sub_shared_act">How to use actions scenes</a>
+                            <a class="url_bullets" href="#asynchronous-functions" data-i18n="sub_shared_mem">How to use Memory block</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_bg">Change Background</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_song">Change Song</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_court">Show 3D Court</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_img">Set Images</a>
+                            <a class="url_bullets" href="#introduction" data-i18n="sub_shared_vid">Set Videos</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_custom">Custom Scripting</a>
+
+                        <div class="sub-menu">
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_custom_what">What is Custom Scripting?</a>
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_shared_usage">Usage</a>
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_custom_avoid">What you should avoid</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_offset">Character Offset Editor</a>
+
+                        <div class="sub-menu">
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_offset_what">What is Character Offset Editor?</a>
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_shared_usage">Usage</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_scene">Using functions on the scene</a>
+
+                        <div class="sub-menu">
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_scene_how">How this works</a>
+                            <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_shared_usage">Usage</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <main>
+                <section class="letter_style" id="introduction">...</section>
+                <section class="letter_style" id="get-started">...</section>
+                <section class="letter_style" id="Event Terms">...</section>
+                <section class="letter_style" id="2d-editor">...</section>
+                <section class="letter_style" id="3d-editor">...</section>
+                <section class="letter_style" id="custom-scripting">...</section>
+                <section class="letter_style" id="character-offset-editor">...</section>
+                <section class="letter_style" id="how-to-use-functions">...</section>
+            </main>
+        </div>  
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

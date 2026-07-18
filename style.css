@@ -1,0 +1,247 @@
+
+
+body{
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'GoodbyeDespair', Courier, monospace;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    height: 5000px;
+}
+
+@font-face {
+  font-family: 'GoodbyeDespair';
+  src: url('assets/font/goodbyeDespair.ttf') format('opentype'),
+       url('assets/font/goodbyeDespair.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+#bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/bg/bg.png');
+    background-repeat: repeat;
+    background-size: auto 100%; 
+    
+    z-index: -1;
+    animation: movebg 30s linear infinite;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px; 
+    padding: 0px; 
+    position: relative;
+}
+
+#loadermonokuma {
+    position: absolute;
+    display: flex;
+    width: 150px;
+    height: 150px;
+    top: 40px;
+    right: 60px;
+    animation: rotate_monokuma 5s linear infinite;
+}
+
+#lang{
+    width: auto;
+    height: 50px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+#lang:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.language {
+    position: absolute;
+
+    top: 80px;
+    left: 20px;
+    
+}
+
+.language button {
+    padding: 15px;
+    font-family: 'GoodbyeDespair', Courier, monospace;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+
+
+.content {
+    display: flex;
+    flex-direction: row; 
+    width: 100%; 
+    flex: 1;
+    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    text-align: center;
+    border: 2px solid #ffffff;
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* side url */
+.side {
+    width: 250px; 
+    color: white;
+    padding: 20px;
+    text-align: left; 
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 2px solid #ffffff;
+    max-height: 100vh;
+    
+    align-self: flex-start; 
+
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+.side ul {
+    list-style: none; 
+    padding: 0;      
+    margin: 0;
+}
+
+main {
+    flex: 1; 
+    padding: 40px;
+    text-align: left;  
+    height: 5000px;
+
+}
+
+#logo{
+    width: auto;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+.url_bullets {
+    display: flex;
+    align-items: center;   
+    justify-content: center; 
+    
+    width: 256px; 
+    height: 110px;
+    min-height: 110px;   
+    max-height: 110px;
+
+    background-image: url("assets/img/bullet.png");
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: 100% 100%;
+    
+   
+    font-size: 14px;      
+    line-height: 1.1;     
+    white-space: normal;  
+    text-align: center;   
+    
+
+    padding-left: 20px;   
+    padding-right: 50px;  
+    box-sizing: border-box; 
+    
+    margin-bottom: -45px; 
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bullet_main {
+    background-image: url("assets/img/white_bullet.png");
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: 100% 100%; 
+    color: #000000;
+}
+
+.sub-menu {
+    max-height: 0;
+    overflow: hidden;
+    
+
+    transition: max-height 0.4s ease-in-out;
+    
+}
+
+
+.sub-menu .url_bullets {
+    height: 110px;
+    min-height: 110px;
+    max-height: 110px;
+    width: 256px;
+    font-size: 14px;
+    margin-bottom: -40px; 
+}
+
+.sub-menu .url_bullets:last-child {
+    margin-bottom: 0px;
+}
+
+
+/*side scrollbar design*/
+.side::-webkit-scrollbar {
+    width: 6px; 
+}
+
+.side::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.side::-webkit-scrollbar-thumb {
+    background: #ffffff; 
+    border-radius: 10px; 
+}
+
+.side::-webkit-scrollbar-thumb:hover {
+    background: #cccccc; 
+}
+
+/* parallax type shi */
+@keyframes movebg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+
+    background-position: -1920px 1080px;
+  }
+}
+
+@keyframes rotate_monokuma {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
