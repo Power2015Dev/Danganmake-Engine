@@ -27,7 +27,7 @@
                         <div class="sub-menu">
                             <a class="url_bullets" href="#what-is-danganmake" data-i18n="sub_intro_what">What is Danganmake?</a>
                             <a class="url_bullets" href="#asynchronous-functions" data-i18n="sub_intro_async">What is an asynchronous function?</a>
-                            <a class="url_bullets" href="#callable-functions" data-i18n="sub_intro_call">Callable functions</a>
+                            <a class="url_bullets" href="#how-to-read" data-i18n="read_intro">How to read the documentation</a>
                         </div>
                     </li>
                     <li>
@@ -46,9 +46,10 @@
                         <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_events">Event terms</a>
 
                         <div class="sub-menu">
-                            <a class="url_bullets" href="#how-editors-work" data-i18n="sub_ev_gs">GlobalSound Events</a>
-                            <a class="url_bullets" href="#asynchronous-functions" data-i18n="sub_ev_cs">CharacterScript Events</a>
-                            <a class="url_bullets" href="#introduction" data-i18n="sub_ev_cl">CharacterList Events</a>
+                            <a class="url_bullets" href="#callable-functions" data-i18n="sub_intro_call">Callable functions</a>
+                            <a class="url_bullets" href="#globalsound-events" data-i18n="sub_ev_gs">GlobalSound Events</a>
+                            <a class="url_bullets" href="#characterscript-events" data-i18n="sub_ev_cs">CharacterScript Events</a>
+                            <a class="url_bullets" href="#characterlist-events" data-i18n="sub_ev_cl">CharacterList Events</a>
                         </div>
                     </li>
                     <li>
@@ -95,7 +96,7 @@
                         </div>
                     </li>
                     <li>
-                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_offset">Character Offset Editor</a>
+                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_offset">Character Editor</a>
 
                         <div class="sub-menu">
                             <a class="url_bullets" href="#CharacterExpressions" data-i18n="sub_offset_what">What is Character Offset Editor?</a>
@@ -114,14 +115,288 @@
             </nav>
 
             <main>
-                <section class="letter_style" id="introduction">...</section>
-                <section class="letter_style" id="get-started">...</section>
-                <section class="letter_style" id="Event Terms">...</section>
-                <section class="letter_style" id="2d-editor">...</section>
-                <section class="letter_style" id="3d-editor">...</section>
-                <section class="letter_style" id="custom-scripting">...</section>
-                <section class="letter_style" id="character-offset-editor">...</section>
-                <section class="letter_style" id="how-to-use-functions">...</section>
+                <div class="whitebg">
+                <section class="letter_style">
+                    <h2 data-i18n="title_intro" style="text-align: center;">Introduction</h2>
+                    <p data-i18n="text_intro">
+                        Hello, and welcome to Danganmake This is a Danganronpa class trial editor. The purpose of this editor is to allow you to create your own trials and customize them to fit your preferences. With this tool, you can make your own fangames, what-if scenarios, or anything else you'd like.
+
+                        We made this project for you, and only for you. We do not want to harm Spike Chunsoft's reputation, nor do we claim ownership over anything. Spike Chunsoft is the sole owner of the Danganronpa franchise, and it belongs entirely to them. 
+                    </p>
+                    <h2 id="what-is-danganmake" data-i18n="what_is_dangan_title">What is Danganmake?</h2>
+                    <p data-i18n="what_is_dangan_text">
+                        It's a Danganronpa game engine that lets you create your own fangames. Specifically designed
+                        to mimic the Danganronpa experience
+                        The engine's main purpose is to be user-friendly and require no programming knowledge
+                        to create your own fangames. <br><br>
+
+                        The engine is built entirely with Godot Engine, an open-source game engine.
+                        To facilitate the use and creation of this engine, popular asset libraries were used, such as:<br><br>
+
+                        Dialogue Manager - Nathan Road<br>
+                        Phantom Camera - Ramokz<br>
+                        Sparkle Lite - Neohex<br>
+
+                        It's an experience to create your own mods and share them with the community, or just for yourself.<br>
+
+                        If you're interested in sharing your creations or playing community creations, we recommend joining the Discord server.<br><br>
+                        <a href="https://discord.gg/nfuBdQRmH8"><img src="assets/img/discord.png" alt="" width="40px" height="40px"></a>
+                    </p>
+
+                    <h2 id="asynchronous-functions" data-i18n="async_title">What is an asynchronous function?</h2>
+                    <p data-i18n="async_text" id="asynchronous-functions">
+                        It's a block of code that runs in the background without interrupting the main program flow.<br><br>
+
+                        This simply means that if there's a block that says it will display a fade-in in the middle of the visual novel, it will perform this action first and then queue up the text until it finishes processing and the text can be displayed. Keep in mind that not all actions are necessarily asynchronous functions and won't necessarily wait for their own event to finish before the next one can play. Examples include functions for changing expressions on the 2D stage or left and right swipe movements.<br><br>
+
+                        The point of this explanation is that the engine doesn't have every action built in to handle every detail, but thanks to asynchronous functions, you can create certain execution orders for events to achieve what you're looking for. For example, if you need a black fade at the beginning of the intro, you can insert a 'screen_fade in' and a 'wait' together to make it wait for the desired duration.<br>
+                    </p>
+                </section>
+
+                <section class="letter_style" id="get-started">
+                    <h2 data-i18n="controls_title" id="Controls">Controls</h2>
+                    <div data-i18n="controls_text">
+                        <p>
+                        The current game design is computer-based, so there is no controller support at this time.<br><br>
+
+                        <span class="mark">During visual novel dialogues, you can press the action key to skip a dialogue. This key includes:<br> - space<br> - enter<br> - left click<br> - controller action button</span><br>
+
+                        <img src="assets/examples/Skip_dialogue.png" alt="" width="100%" height="100%">
+
+                        <br><br>
+
+                        <span class="mark">
+                        When we talk about the general gameplay of Non-Stop Debate, you can move the cursor with the mouse and change the bullet selection with the arrow keys:<br> - up arrow<br> - down arrow<br> - left arrow<br> - right arrow
+                        </span><br>
+
+                        <img src="assets/examples/changeBullet.gif" alt="" width="100%" height="100%">
+
+                        <br><br>
+                        <span class="mark">
+                        Just like in Danganronpa, you can also advance or rewind time with your focus gauge using the following keys:<br> - Shift (Focus gauge)<br> - Space (advance time)
+                        </span><br>
+
+                        <img src="assets/examples/focusgauge.gif" alt="" width="100%" height="100%">
+
+                        <br><br>
+                        <span class="mark">
+                        When you choose a culprit, you can move with the arrow keys:<br> - Left arrow<br> - Right arrow<br> and you can also select with the action key:<br>
+                        - Space<br> - Enter<br> - Left click<br> - Action button Command
+                        </span><br>
+
+                        <img src="assets/examples/choose_culprit.gif" alt="" width="100%" height="100%">
+
+                        <br><br>
+
+                        <span class="mark">
+                        When you have multiple choice, you can navigate with the arrow keys:<br> - Up arrow<br> - Down arrow<br>
+                        </span><br>
+
+                        <img src="assets/examples/choose.gif" alt="" width="100%" height="100%">
+
+                        <br><br>
+
+                        <span class="mark">
+                        Here you are presented with evidence where you have to choose the correct answer. To choose a bullet, you must:<br>
+                        - Right-click<br><br>
+                        You can also see the description by left-clicking on the details box<br>
+                        </span><br>
+
+                        <img src="assets/examples/presentevidence.gif" alt="" width="100%" height="100%"> 
+                        </p>
+                    </div>
+
+                    <h2 data-i18n="how_to_make_your_mod_title" id="how-to-create-your-mod">How to make your mod</h2>
+                    <p data-i18n="how_to_make_your_mod_text">
+                        <span class="mark">
+                            You can make your own mod by pressing the new button in make mode
+                        </span>
+                        <img src="assets/examples/new button.png" alt="" width="100%" height="100%"><br><br>
+
+                        <span class="mark">
+                            The next thing you'll need to do is choose a title and description for the mod; optionally, you can add an icon and a thumbnail.
+                        </span>
+                        <img src="assets/examples/titledescription.png" alt="" width="100%" height="100%"><br><br>
+
+                        Now you can work comfortably using the tools!
+                    </p>
+
+                    <h2 data-i18n="how_editor_work_title" id="how-editors-work">How Editors Work</h2>
+                    <p data-i18n="how_editor_work_text">
+                        <span class="mark">
+                            The editor is divided into several sections:<br>
+                            - Characters -> This is where you configure the characters present<br>
+                            - Intro -> This is simply the 2D editor for character dialogue<br>
+                            - Trial -> This is simply the 3D editor for controlling gameplay and dialogue<br>
+                            - Settings -> Return to the section to configure the title and description<br>
+                            - Test -> This is for testing your creation in either the 2D or 3D scene<br>
+                        </span>
+                        <img src="assets/examples/editor_section.png" alt="" width="100%" height="100%"><br><br>
+                    </p>
+
+                    <h2 data-i18n="where_your_assets_go_title" id="where-your-assets-go">Where your assets go?</h2>
+                    <p data-i18n="where_your_assets_go_text">
+                        <span class="mark">
+                            All your assets go in the folder with the same name. If it doesn't already exist, using some of the editor's functions will create it, but if necessary you can create it yourself. You can do the same with the folders inside.<br>
+                        </span>
+                        <img src="assets/examples/assets.png" alt="" width="50%" height="50%"><br><br>
+                    </p>
+
+                    <h2 data-i18n="where_your_characters_go_title" id="where-your-characters-go">Where your characters go?</h2>
+                    <p data-i18n="where_your_characters_go_text">
+                        <span class="mark">
+                            When you create a new character that isn't in the base game, a folder called Custom_Characters will be created. You should add your characters using the editor.<br>
+                        </span>
+                        <img src="assets/examples/CustomChar.png" alt="" width="30%" height="30%"><br><br>
+                    </p>
+                </section>
+
+                <section class="letter_style" id="Event Terms">
+                    <h2 data-i18n="callable_functions_title" id="callable-functions">Callable Functions</h2>
+                    <p data-i18n="callable_functions_text">
+                        <span class="mark">
+                            One advantage of using the Dialogue Manager is that its creator provided ways to execute actions. The actions that can be executed for Danganmake are:
+                            <br>
+                            - GlobalSound<br>
+                            - CharacterScript<br>
+                            - CharacterList<br>
+                            - Scene-specific functions (See using functions on the scene)<br>
+
+                            Each of these tags can execute different functions within the same editor.<br>
+
+                            Fun fact: The GlobalSound tag is used throughout the game, both in the menu and the editor, to display any type of sound.<br><br>
+                        </span>
+                    </p>
+                    
+                    <h2 data-i18n="globalsound_events_title" id="globalsound-events">GlobalSound Events</h2>
+                    <p data-i18n="globalsound_events_text">
+                        <span class="mark">
+                            GlobalSound is a script that runs when the game starts, as it's responsible for loading all the sounds in the game, including voices, sound effects, and songs. It also has a repertoire of functions that the user can utilize.<br><br>
+
+                            <code class="inline-code">
+                                <span class="c-keyword">do</span> 
+                                <span class="c-class">GlobalSound</span>.<span class="c-method">Method</span>(<span class="c-string">"Parameter"</span>)
+                            </code>
+                            <br>
+                            The repertoire of events that GlobalSound can use are as follows:<br><br>
+
+                            <code class="inline-code">
+                                <span class="c-keyword">Load_SFX</span>(SoundName : <span class="c-string">String</span>) -> it's self explanatory plays a sound by his name only if exist <br><br>
+                                <span class="c-keyword">Load_MUSIC</span>(SongName : <span class="c-string">String</span>) -> same goes for music<br><br>
+                                <span class="c-keyword">Load_VOICE</span>(VoiceName :<span class="c-string">String</span>) -> also same goes for voices one details is this only can play custom voices of your current roster<br><br>
+                                <span class="c-keyword">Stop_SFX</span>() -> if an sfx is playing it will stop it<br><br>
+                                <span class="c-keyword">Stop_MUSIC</span>() -> same goes for music<br><br>
+                                <span class="c-keyword">Stop_VOICE</span>() -> same goes for voices<br><br>
+                                <span class="c-keyword">Pitch_Voice</span>(Pitch : <span class="c-class">Float</span> = <span class="c-number">1.0</span>) -> If there is a voice playing right now, this function will change its pitch, this indirectly also changes its speed due to the pitch<br><br>
+                            </code>
+                            <br><br>
+                        </span>
+                    </p>
+                    
+                    <h2 data-i18n="characterscript_events_title" id="characterscript-events">CharacterScript Events</h2>
+                    <p data-i18n="characterscript_events_text">
+                        <span class="mark">
+                            CharacterScript is one of the most important autoloads in the engine. It is responsible for handling all visual novel elements, screen effects, backgrounds, transitions, and character animations on the 2D stage.<br><br>
+                            
+                            <span class="warning">WARNING: The use of these methods should be limited to the 2D scene; using them in other scenes, including 3D, will certainly cause a crash.</span><br><br>
+                            <code class="inline-code">
+                                <span class="c-keyword">do</span> 
+                                <span class="c-class">CharacterScript</span>.<span class="c-method">Method</span>(<span class="c-string">"Parameter"</span>)
+                            </code>
+                            <br>
+                            The repertoire of events that CharacterScript can use are as follows:<br><br>
+
+                            <code class="inline-code">
+                                <span class="c-keyword">Change_bg</span>(BackgroundName : <span class="c-string">String</span>) -> Changes the current 2D background.<br><br>
+
+                                <span class="c-keyword">CH_EXPRESSION</span>(CharacterName : <span class="c-string">String</span>, EmotionName : <span class="c-string">String</span>) -> Changes the character's sprite smoothly creating a shadow of its previous image.<br><br>
+
+                                <span class="c-keyword">CH_EXPRESSION_OLD</span>(CharacterName : <span class="c-string">String</span>, EmotionName : <span class="c-string">String</span>) -> Changes the character's sprite instantly (legacy).<br><br>
+
+                                <span class="c-keyword">Left_Slide</span>(CharacterName : <span class="c-string">String</span>, EmotionName : <span class="c-string">String</span>) -> Makes a character enter the screen sliding from the left.<br><br>
+
+                                <span class="c-keyword">Right_Slide</span>(CharacterName : <span class="c-string">String</span>, EmotionName : <span class="c-string">String</span>) -> Makes a character enter the screen sliding from the right.<br><br>
+
+                                <span class="c-keyword">fadein</span>() -> Fades in the current character sprite on screen.<br><br>
+
+                                <span class="c-keyword">fadeout</span>() -> Fades out the current character sprite.<br><br>
+
+                                <span class="c-keyword">Show_image</span>(ImageName : <span class="c-string">String</span>) -> Displays an image from your assets folder on the screen.<br><br>
+
+                                <span class="c-keyword">Remove_image</span>() -> Removes the currently displayed image.<br><br>
+
+                                <span class="c-keyword">Play_Video</span>(VideoName : <span class="c-string">String</span>) -> Plays an .ogv video from your assets folder.<br><br>
+
+                                <span class="c-keyword">screen_fade_in</span>(Speed : <span class="c-class">Float</span> = <span class="c-number">1.0</span>, ColorName : <span class="c-string">Color</span> = <span class="c-class">Color</span>.BLACK) -> Fades the screen to a specific color.<br><br>
+
+                                <span class="c-keyword">screen_fade_out</span>(Speed : <span class="c-class">Float</span> = <span class="c-number">1.0</span>, ColorName : <span class="c-string">Color</span> = <span class="c-class">Color</span>.BLACK) -> Fades the screen back to normal from a solid color.<br><br>
+
+                                <span class="c-keyword">Screen_Shake</span>(NodeName : <span class="c-string">String</span>, Intensity : <span class="c-class">Float</span>, Time : <span class="c-class">Float</span>) -> Shakes the screen or a specific node (e.g., "all", "bg", "Character") for a set duration.<br><br>
+
+                                <span class="c-keyword">Stop_Screen_Shake</span>() -> Stops any active screen shake immediately.<br><br>
+
+                                <span class="c-keyword">Screen_Flash</span>() -> Creates a quick flash effect on the screen.<br><br>
+
+                                <span class="c-keyword">Wait</span>(Time : <span class="c-class">Float</span>) -> Pauses the execution of the next dialogue/action for the specified time in seconds.<br><br>
+
+                                <span class="c-keyword">Memory</span>(MemoryID : <span class="c-class">Int</span>) -> Calls and plays a specific Memory block by its ID.<br><br>
+
+                                <span class="c-keyword">Show_3D_Court</span>() -> Displays the 3D trial background environment.<br><br>
+
+                                <span class="c-keyword">Hide_3D_Court</span>() -> Hides the 3D trial background and returns to the 2D background.<br><br>
+                            </code>
+                            <br><br>
+                        </span>
+                    </p>
+                    
+                    <h2 data-i18n="characterlist_events_title" id="characterlist-events">CharacterList Events</h2>
+                    <p data-i18n="characterlist_events_text">
+                       <span class="mark">
+            CharacterList is the core autoload managing the 3D court environment and character interactions within it.<br><br>
+
+            <span class="warning">WARNING: The use of these methods should be limited to the 3D scene; using them in other scenes, including 2D, will certainly cause a crash.</span><br><br>
+
+                <code class="inline-code">
+                    <span class="c-keyword">do</span> 
+                    <span class="c-class">CharacterList</span>.<span class="c-method">Method</span>(<span class="c-string">"Parameter"</span>)
+                </code>
+                <br>
+                The repertoire of events that CharacterList can use are as follows:<br><br>
+
+                <code class="inline-code">
+                    <span class="c-keyword">CH_EXPRESSION_3D</span>(CharacterName : <span class="c-string">String</span>, EmotionName : <span class="c-string">String</span>) -> Changes the expression of a character currently in the 3D room.<br><br>
+
+                    <span class="c-keyword">focus_CH</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.2</span>) -> The camera will perform a simple linear movement to focus on a character with the specified FOV and speed.<br><br>
+
+                    <span class="c-keyword">focus_CH_zoom_in_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>) -> The camera will start at the specified angle and smoothly rotate back to its original position while zooming in.<br><br>
+
+                    <span class="c-keyword">focus_CH_zoom_out_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, ... ) -> Same as above, but zooming out.<br><br>
+
+                    <span class="c-keyword">focus_CH_zoom_in</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>) -> Standard zoom in animation towards the character.<br><br>
+                    
+                    <span class="c-keyword">focus_CH_zoom_out</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>) -> Standard zoom out animation from the character.<br><br>
+
+                    <span class="c-keyword">focus_CH_zoom_in_Top</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>) -> Zooms in focusing slightly higher on the character.<br><br>
+
+                    <span class="c-keyword">focus_CH_slow_camera_L</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>) -> The camera is positioned slightly to the Left (L) and slowly centers itself.<br><br>
+
+                    <span class="c-keyword">focus_CH_slow_camera_R</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>) -> The camera is positioned slightly to the Right (R) and slowly centers itself.<br><br>
+
+                    <span class="c-keyword">Choose_culprit</span>(ID : <span class="c-class">Int</span>) -> Enters the culprit selection mode. <i style="color: #ffcc00;">Note: It is highly recommended NOT to use this function manually from the root, as its ID depends entirely on specific data existing in a JSON file generated by the editor.</i><br><br>
+
+                    <span class="c-keyword">Shake</span>(NodeName : <span class="c-string">String</span>, Intensity : <span class="c-class">Float</span>, Duration : <span class="c-class">Float</span>) -> Shakes a specific node within the 3D scene for a set duration e.g(GUI, Bullets_Gui, dialogue [dialogue is most common one]).<br><br>
+
+                    <span class="c-keyword">Wait</span>(Time : <span class="c-class">Float</span>) -> Pauses the execution for the specified time in seconds.<br><br>
+
+                    <span class="c-keyword">Play_I_See</span>() -> Prepares and plays the "I See" (cut-in) animation sequence.<br><br>
+
+                    <span class="c-keyword">present_evidence</span>(CorrectAnswer : <span class="c-string">String</span>) -> Opens the truth bullet menu to present evidence. <i style="color: #ffcc00;">Note: It is strongly recommended NOT to use this function manually. It requires formulating the question with specific boolean values and structure that is currently only manageable through the editor.</i><br><br>
+                </code>
+                <br><br>
+            </span>
+                    </p>
+                </section>
+                </div>
             </main>
         </div>  
     </div>

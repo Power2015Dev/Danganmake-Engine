@@ -7,7 +7,6 @@ body{
     font-size: 16px;
     margin: 0;
     padding: 0;
-    height: 5000px;
 }
 
 @font-face {
@@ -18,6 +17,20 @@ body{
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'PoorRichard';
+  src: url('assets/font/PoorRichardOpti.otf') format('opentype'),
+       url('assets/font/PoorRichardOpti.otf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.c-keyword { color: #ff7b7b; } /* things like do */
+.c-class   { color: #4fff9e; } /* things like 'CharacterScript', 'GlobalSound' */
+.c-method  { color: #dcdcaa; } /* functions like 'Show_image' */
+.c-string  { color: #ce9178; } /* parameters */
+.c-number  { color: #82cacc; } /* numbers */
 
 
 #bg{
@@ -132,7 +145,7 @@ main {
     flex: 1; 
     padding: 40px;
     text-align: left;  
-    height: 5000px;
+  
 
 }
 
@@ -166,9 +179,10 @@ main {
     
 
     padding-left: 20px;   
-    padding-right: 50px;  
+    padding-right: 50px;
     box-sizing: border-box; 
     
+    margin-top: 20px;
     margin-bottom: -45px; 
     color: #ffffff;
     text-decoration: none;
@@ -205,6 +219,60 @@ main {
 .sub-menu .url_bullets:last-child {
     margin-bottom: 0px;
 }
+
+.whitebg{
+    background-color: #f2f2f2; 
+    border: 4px solid #333333; 
+    border-radius: 4px;
+    padding: 30px;
+    
+
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.5); 
+    
+    color: #000000;
+}
+
+.letter_style{
+    font-family: 'PoorRichard', Courier, monospace;
+    font-size: 16px;
+    color: #000000;
+}
+
+.mark{
+    background-color: #333; 
+    color: #e2e8f0; 
+    font-size: 20px;
+    border: 1px solid #404040; 
+    padding: 2px 6px; 
+    
+    display: inline-block;
+}
+
+.inline-code {
+    background-color: #000000; 
+    color: #d4d4d4;
+    font-family: "PoorRichard", "Courier New", Courier, monospace; 
+    padding: 6px 12px; 
+
+    font-size: 16px;
+    display: inline-block; 
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3); 
+}
+
+
+.warning {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background-color: #fff3cd;
+  color: #856404; 
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
 
 
 /*side scrollbar design*/
