@@ -32,11 +32,14 @@ const langData = {
         nav_custom: "Custom Scripting",
         sub_custom_what: "What is Custom Scripting?",
         sub_shared_usage: "Usage",
+        sub_shared_usage_2D: "2D offset editor usage",
+        sub_shared_usage_3D: "3D offset editor usage",
         sub_custom_avoid: "What you should avoid",
         nav_offset: "Character Editor",
-        sub_offset_what: "What is Character Offset Editor?",
+        sub_offset_what: "What is Character Editor?",
         nav_scene: "Using functions on the scene",
         sub_scene_how: "How this works",
+        scene2d_btn: "2D Scene",
         title_intro: "Introduction",
         text_intro: `
         Hello, and welcome to Danganmake This is a Danganronpa class trial editor. The purpose of this editor is to allow you to create your own trials and customize them to fit your preferences. With this tool, you can make your own fangames, what-if scenarios, or anything else you'd like.
@@ -270,7 +273,176 @@ const langData = {
                 <br><br>
             </span>
         `,
-        
+        text_shared_voice: `
+            <span class="mark">
+                In the dialogue creation panel, you can select a specific voice clip for the character. These voices are automatically fetched from the character's designated 'Voices' folder in the roster. They will play exactly when the character's dialogue line starts.<br><br>
+            </span>
+            <img src="assets/examples/voice2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_snd: `
+            <span class="mark">
+                Similar to voices, you can assign sound effects (SFX) to a dialogue line. This is typically used for impact sounds, desk slams, or specific text-scroll noises to give more impact to the scene.<br><br>
+            </span>
+            <img src="assets/examples/sound2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_ba: `
+            <span class="mark">
+                You will notice a toggle switch (checkbox) next to Sounds and Action Scenes. By default (unchecked), the sound or action will play <b>before</b> the dialogue text appears. If you check the box, the effect will execute <b>after</b> the dialogue line is completely spoken and before moving to the next block.<br><br>
+            </span>
+            <img src="assets/examples/beforeafter2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_act: `
+            <span class="mark">
+                You can add multiple action rows to a single dialogue block using the "add action scene" button. This allows you to stack visual effects like Screen Shakes, Screen Flashes, Fades, or Waits simultaneously with the dialogue line..<br><br>
+            </span>
+            <img src="assets/examples/sceneaction2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_mem: `
+            <span class="mark">
+                Memory blocks allow you to create isolated timelines, perfect for flashbacks or evidence descriptions. Use the 'Memory' event button to create a Memory Start and End block with a unique ID. Anything placed inside will be hidden from the main flow. To trigger it, use the 'Call' button to insert a Memory Call block in your main timeline. Additionally, there is a button to switch the memory view mode to the normal view stream.<br><br>
+            </span>
+            <img src="assets/examples/Memory2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_bg: `
+            <span class="mark">
+                Using the 'Change Background' event block, you can switch the 2D environment background. You can use the default Danganronpa backgrounds or upload your own custom .png/.jpg images directly through the editor.<br><br>
+            </span>
+            <img src="assets/examples/bg2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_song: `
+            <span class="mark">
+                The 'Change Music' event block allows you to change the background music. The selected track will loop automatically until you stop it or change it to another song.<br><br>
+            </span>
+            <img src="assets/examples/music2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_court: `
+            <span class="mark">
+                The 'Show 3D Court' event block toggles the 3D court environment. When set to SHOW, it hides the 2D background and displays the 3D trial room behind your 2D characters. Setting it to HIDE reverts it back to the standard 2D background.<br><br>
+            </span>
+            <img src="assets/examples/3dcourt2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_img: `
+            <span class="mark">
+                The 'Set Image' event block allows you to display a custom static image overlay on the screen, which is extremely useful for showing evidence, clues, or cut-ins. The editor also provides a specific 'Remove Image' button to clear it from the screen.<br><br>
+            </span>
+            <img src="assets/examples/setimage2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_vid: `
+            <span class="mark">
+                Using the 'Set Video' event block, you can play full video cutscenes over your game. Please note that due to engine limitations, videos must be in .ogv format to be recognized.<br><br>
+            </span>
+            <img src="assets/examples/video2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_end: `
+            <span class="mark">
+                The 'End Chapter Dialogue' event block acts as a visual divider. Any dialogue or action placed below this block will be automatically separated and compiled as the ending sequence of the chapter.<br><br>
+            </span>
+        `,
+        custom_script_title: "What is a Custom Script",
+        custom_script_text: `
+            <span class="mark">
+                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
+
+                In the custom script events section, there's what's called a 'custom block'. It's just a normal block, but the difference is that you don't add actions through the editor; you add them through code (see Event Terms for more information). For example, thanks to the use of CharacterScript, you can call each function separately and combine them to create a specific event in the 2D editor. <br><br>
+
+                An important point is that, for ease of use, whenever you write a function (this only applies to beta 1.0), 'do CharacterScript' will be written directly before your code. The only exception is when you call the 'GlobalSound' function.<br><br>
+                
+                If you write a colon ' : ' in the middle of a line of text, the editor interprets it as character dialogue, for example, 'Hajime: Hi'.<br><br>
+                
+                If you write an exclamation mark ' ! ' at the beginning of the line, you have to manually write the action you want to execute, for example, '! Script.Method'. You'll realize that this is the most basic and primitive way to program in the editor, but it can be used for very specific things and to execute functions that only exist in the current scene (see "Using functions on the scene" for more information).
+            </span>
+            <img src="assets/examples/custom_script.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        custom_script_usage_title: "Usage",
+        custom_script_usage_text: `
+            <span class="mark">
+                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
+
+                Functions that don't use ! are simply executing CharacterScript, and to generate dialogue text, simply type your character's name followed by : and the text you want it to say (See Event Terms for information on callable functions).<br><br>
+            </span>
+            <img src="assets/examples/scripting2.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        Character_Editor_title: "What is the Character Editor?",
+        Character_Editor_text: `
+            <span class="mark">
+                The Character Editor is a built-in visual tool that allows you to manage the cast of your Danganronpa trial. With this tool, you can explore the characters already included in the base game, add new custom sprites (expressions) to them, or create completely new original characters for your specific mod. It automatically handles the creation of the necessary folders (like the 'Voices' folder) and safely imports your images so they are ready to be used in the 2D and 3D scenes.<br><br>
+            </span>
+        `,
+        Character_Editor_usage_title: "Usage",
+        Character_Editor_usage_text: `
+            <span class="mark">
+                The interface is divided into two main panels:<br><br>
+                
+                <b>The Left Panel:</b> Here you can browse between 'Existing Characters' (the base game roster) and 'Your Characters' (custom characters created for your mod). You can use the search bar to easily find a specific character or click the '+ Create New Character' button at the bottom to start from scratch.<br><br>
+                
+                <b>The Right Panel (Editor):</b> Once you select or create a character, this panel activates. You can use the '+ Add sprite' button to select .png or .jpg images from your computer. The 'Sprites List' will show all the expressions the character currently has (marked as EXISTING) and the new ones you are adding. You can click on any sprite to see how it looks in the 'Preview' window. Finally, press the confirmation button at the bottom to save your changes and import the sprites.<br><br>
+            </span>
+            
+        `,
+        Character_Offset_title: "What is the 2D Character Offset Editor?",
+        Character_Offset_text: `
+            <span class="mark">
+                The 2D Character Offset Editor is a visual tool designed to align and scale your character sprites correctly. Since custom images can vary greatly in resolution and blank space, they might not center perfectly on the screen by default. This tool allows you to adjust their exact position and size so they look flawless in your visual novel scenes. All adjustments are automatically saved in a 'config.json' file inside the character's specific folder.<br><br>
+            </span>
+        `,
+        Character_Offset_usage_text: `
+            <span class="mark">
+                To use this tool, simply select a character from the dropdown menu on the left panel. The editor will automatically load their default 'idle' sprite onto the visual reference background. Use the <b>Scale</b> slider to make the character bigger or smaller, and the <b>Pos X</b> (horizontal) and <b>Pos Y</b> (vertical) sliders to position them exactly where they belong. Once you are happy with the visual alignment, click the pink <b>Save</b> button to generate the configuration file and apply the changes globally.<br><br>
+            </span>
+            
+        `,
+        Character_Offset_3D_title: "3D Character Offset Editor",
+        Character_Offset_3D_usage_text: `
+            <span class="mark">
+                Just like the 2D Offset Editor, the 3D version allows you to adjust the scale and position of your characters, but specifically for the 3D trial environment. In the trial, characters are placed in physical 3D slots (podiums), so setting the correct height and size is crucial to prevent them from looking like they are floating or sinking into the floor.<br><br>
+
+                To use it, select a character from the dropdown. The editor will place them in a real 3D slot using their default 'idle' sprite. Adjust the <b>Scale</b> to make them fit the podium, and use <b>Pos X</b> and <b>Pos Y</b> to center them and plant their feet firmly. Once you hit <b>Save</b>, these values are added to the character's 'config.json' file alongside the 2D settings, ensuring they look perfect in both modes.<br><br>
+            </span>
+        `,
+        Scene2D_text: 
+        `
+        <span class="mark">
+        The 2D scene, also known as the Intro, is where you plan the context for the story you want to tell. In this mode, it's similar to Danganronpa, where you tell a story in a 2D visual novel environment. The difference is that you have all the evidence from the start, so you'll have to make the story fit with the Bullets of Truth you've added. The limitation is your imagination; you can pretend you never had any evidence, but you gradually acquire it. How you tell the story is what matters. You have a ridiculous number of tools to make that story the best it can be, though obviously, those tools are limited by what the original Danganronpa can do.<br><br>
+                        
+                            
+        </span>
+        `,
+        Scene2D_title: "2D Scene",
+        CH_Expressions_title: "Character Expressions",
+        functions_scene_title: "how to use functions in the scene",
+        functions_scene_text:
+        `
+        <span class="mark">
+            (Currently limited to 2D only in beta 1.0)
+            This is used in conjunction with the custom script. It works by using '!' at the beginning of the line to write the method yourself. This can be used for very specific tasks, but it also allows you to call functions that already exist because they are loaded into the scene you are in. For example, in the 3D scene,<br><br>
+
+            <code class="inline-code">! <span class="c-keyword"> CharacterScript</span>.<span class="c-method">Health_loss</span>(life: <span class="c-class">int</span> = <span class="c-number">15</span>)</code><br><br>
+
+                <br><br>
+                means you can also remove or even add life. That's its usefulness.
+        </span>
+        `,
+        how_to_read_title: "Como leer la documentacion",
+        how_to_read_text: `
+            <span class="mark">
+                When you look at the event sections, you will see lines that look like programming code. It's just a specific format to tell the engine exactly what to do. Here is a breakdown of how to read them:<br><br>
+
+                <b>The Dot (.)</b><br>
+                You will often see things like <code class="inline-code"><span class="c-class">CharacterScript</span>.<span class="c-method">Change_bg</span></code>. The first word (CharacterScript, GlobalSound, CharacterList) is the engine's internal manager. The dot ( . ) connects it to the specific action you want to execute.<br><br>
+
+                <b>The Parentheses ( )</b><br>
+                These contain the <b>Parameters</b> (the specific details the action needs to work). If an action doesn't need details, the parentheses will be empty <code class="inline-code">()</code>. If it does, you must put the values inside them.<br><br>
+
+                <b>Parameters & Data Types</b><br>
+                Inside the parentheses, the documentation tells you what kind of data to insert:
+                <br>
+                - <b>String:</b> Means text. You <b>must</b> write your value inside quotation marks. Example: <code class="inline-code"><span class="c-string">"Chiaki"</span></code> or <code class="inline-code"><span class="c-string">"Idle"</span></code>.<br>
+                - <b>Int or Float:</b> Means numbers (Int is a whole number, Float is a decimal). Do not use quotation marks. Example: <code class="inline-code"><span class="c-number">50</span></code> or <code class="inline-code"><span class="c-number">1.5</span></code>.<br><br>
+
+                <b>Default Values (=)</b><br>
+                If a parameter has an equals sign (e.g., <code class="inline-code">FOV : <span class="c-class">Int</span> = <span class="c-number">50</span></code>), it means this parameter is <b>optional</b>. If you just leave it empty, the engine will automatically assume it is 50. You only need to write a number if you want a different result.<br><br>
+            </span>
+        `,
     },
     es: {
         nav_intro: "Introduccion",
@@ -305,11 +477,14 @@ const langData = {
         nav_custom: "Scripts Personalizados",
         sub_custom_what: "¿Que son los Scripts Personalizados?",
         sub_shared_usage: "Uso",
+        sub_shared_usage_2D: "Uso del editor de offset en 2D",
+        sub_shared_usage_3D: "Uso del editor de offset en 3D",
         sub_custom_avoid: "Lo que debes evitar",
-        nav_offset: "Editor de Desplazamiento",
-        sub_offset_what: "¿Que es el Editor de Desplazamiento?",
+        nav_offset: "Editor de Personajes",
+        sub_offset_what: "¿Que es el Editor de Personajes?",
         nav_scene: "Usar funciones en la escena",
         sub_scene_how: "Como funciona esto",
+        scene2d_btn: "Escena 2D",
         title_intro: "Introduccion",
         text_intro: `
         Hola bienvenido a danganmake este es un editor de juicios de danganronpa, el punto de este
@@ -544,7 +719,179 @@ const langData = {
                 <br><br>
             </span>
         `,
-        
+        text_shared_voice: `
+            <span class="mark">
+                En el panel de creación de diálogos, puedes seleccionar un clip de voz específico para el personaje. Estas voces se obtienen automáticamente de la carpeta 'Voices' asignada al personaje en el roster. Se reproducirán exactamente cuando comience la línea de diálogo del personaje.<br><br>
+            </span>
+            <img src="assets/examples/voice2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_snd: `
+            <span class="mark">
+                De manera similar a las voces, puedes asignar efectos de sonido (SFX) a una línea de diálogo. Esto se usa típicamente para sonidos de impacto, golpes en el escritorio o ruidos específicos de texto para darle más impacto a la escena.<br><br>
+            </span>
+            <img src="assets/examples/sound2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_ba: `
+            <span class="mark">
+                Notarás un interruptor (casilla de verificación) junto a Sonidos y Escenas de Acción. Por defecto (desmarcado), el sonido o acción se reproducirá <b>antes</b> de que aparezca el texto del diálogo. Si marcas la casilla, el efecto se ejecutará <b>después</b> de que la línea de diálogo se haya dicho por completo y antes de pasar al siguiente bloque.<br><br>
+            </span>
+            <img src="assets/examples/beforeafter2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_act: `
+            <span class="mark">
+                Puedes añadir múltiples filas de acción a un solo bloque de diálogo usando el botón "add action scene". Esto te permite acumular efectos visuales como Sacudidas de Pantalla, Destellos, Fundidos o Esperas simultáneamente con la línea de diálogo.<br><br>
+            </span>
+            <img src="assets/examples/sceneaction2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_mem: `
+            <span class="mark">
+                Los bloques de memoria te permiten crear líneas de tiempo aisladas, perfectas para flashbacks o descripciones de evidencia. Usa el botón del evento 'Memory' para crear un bloque de Inicio y Fin de Memoria con un ID único. Cualquier cosa colocada adentro estará oculta del flujo principal. Para activarlo, usa el botón 'Call' para insertar un bloque de Llamada de Memoria en tu línea de tiempo principal. Adicionalmente, hay un botón para cambiar el modo de vista de memoria al flujo de vista normal.<br><br>
+            </span>
+            <img src="assets/examples/Memory2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_bg: `
+            <span class="mark">
+                Usando el bloque de evento 'Change Background', puedes cambiar el fondo del entorno 2D. Puedes usar los fondos predeterminados de Danganronpa o subir tus propias imágenes .png/.jpg personalizadas directamente a través del editor.<br><br>
+            </span>
+            <img src="assets/examples/bg2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_song: `
+            <span class="mark">
+                El bloque de evento 'Change Music' te permite cambiar la música de fondo. La pista seleccionada se reproducirá en bucle automáticamente hasta que la detengas o la cambies por otra canción.<br><br>
+            </span>
+            <img src="assets/examples/music2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_court: `
+            <span class="mark">
+                El bloque de evento 'Show 3D Court' alterna el entorno 3D del tribunal. Cuando se establece en SHOW (Mostrar), oculta el fondo 2D y muestra la sala de juicio 3D detrás de tus personajes 2D. Establecerlo en HIDE (Ocultar) lo revierte al fondo 2D estándar.<br><br>
+            </span>
+            <img src="assets/examples/3dcourt2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_img: `
+            <span class="mark">
+                El bloque de evento 'Set Image' te permite mostrar una imagen estática personalizada superpuesta en la pantalla, lo cual es extremadamente útil para mostrar evidencia, pistas o recortes (cut-ins). El editor también proporciona un botón específico de 'Remove Image' (Quitar Imagen) para borrarla de la pantalla.<br><br>
+            </span>
+            <img src="assets/examples/setimage2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_vid: `
+            <span class="mark">
+                Usando el bloque de evento 'Set Video', puedes reproducir cinemáticas de video completas sobre tu juego. Ten en cuenta que, debido a limitaciones del motor, los videos deben estar en formato .ogv para ser reconocidos.<br><br>
+            </span>
+            <img src="assets/examples/video2d.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        text_shared_end: `
+            <span class="mark">
+                El bloque de evento 'End Chapter Dialogue' actúa como un separador visual. Cualquier diálogo o acción que se coloque debajo de este bloque será automáticamente separado y compilado como la secuencia final del capítulo.<br><br>
+            </span>
+        `,
+        custom_script_title: "¿Qué es un Script Personalizado?",
+        custom_script_text: `
+            <span class="mark">
+                <span class="warning">ADVERTENCIA: Debes tener cuidado al usar estos eventos; distinguen entre mayúsculas y minúsculas, y cualquier error tipográfico ciertamente causará un cierre inesperado (crash).</span><br>
+
+                En la sección de eventos de custom script (scripts personalizados), existe lo que se llama un 'bloque personalizado' (custom block). Es solo un bloque normal, pero la diferencia es que no añades las acciones a través del editor visual; las añades a través de código (consulta los Términos de Eventos para más información). Por ejemplo, gracias al uso de CharacterScript, puedes llamar cada función por separado y combinarlas para crear un evento específico en el editor 2D.<br><br>
+
+                Un punto importante es que, para facilitar su uso, siempre que escribas una función (esto solo aplica a la beta 1.0), se escribirá 'do CharacterScript' automáticamente antes de tu código. La única excepción es cuando llamas a la función 'GlobalSound'.<br><br>
+                
+                Si escribes dos puntos ' : ' en el medio de una línea de texto, el editor lo interpreta como un diálogo de personaje, por ejemplo, 'Hajime: Hola'.<br><br>
+                
+                Si escribes un signo de exclamación ' ! ' al principio de la línea, tendrás que escribir manualmente la acción que quieres ejecutar, por ejemplo, '! Script.Method()'. Te darás cuenta de que esta es la forma más básica y primitiva de programar en el editor, pero se puede usar para cosas muy específicas y para ejecutar funciones que solo existen en la escena actual (consulta "Usar funciones en la escena" para más información).
+            </span>
+            <img src="assets/examples/custom_script.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        custom_script_usage_title: "Uso",
+        custom_script_usage_text: `
+            <span class="mark">
+                <span class="warning">ADVERTENCIA: Debes tener cuidado al usar estos eventos; distinguen entre mayúsculas y minúsculas, y cualquier error tipográfico ciertamente causará un cierre inesperado (crash).</span><br>
+
+                Las funciones que no usan ! simplemente están ejecutando CharacterScript, y para generar el texto de diálogo, simplemente escribe el nombre de tu personaje seguido de : y el texto que quieres que diga (Consulta los Términos de Eventos para obtener información sobre las funciones llamables).<br><br>
+            </span>
+            <img src="assets/examples/scripting2.png" alt="" width="50%" height="50%"><br><br>
+        `,
+        Character_Editor_title: "¿Qué es el Editor de Personajes?",
+        Character_Editor_text: `
+            <span class="mark">
+                El Editor de Personajes es una herramienta visual integrada que te permite gestionar el elenco de tu juicio de Danganronpa. Con esta herramienta, puedes explorar los personajes que ya vienen incluidos en el juego base, añadirles nuevos sprites (expresiones) personalizados, o crear personajes originales completamente nuevos para tu mod específico. Se encarga automáticamente de crear las carpetas necesarias (como la carpeta 'Voices') e importar tus imágenes de forma segura para que estén listas para usarse en las escenas 2D y 3D.<br><br>
+            </span>
+        `,
+        Character_Editor_usage_title: "Uso",
+        Character_Editor_usage_text: `
+            <span class="mark">
+                La interfaz está dividida en dos paneles principales:<br><br>
+                
+                <b>El Panel Izquierdo:</b> Aquí puedes navegar entre 'Existing Characters' (el elenco del juego base) y 'Your Characters' (personajes personalizados creados para tu mod). Puedes usar la barra de búsqueda para encontrar fácilmente a un personaje específico o hacer clic en el botón '+ Create New Character' en la parte inferior para empezar desde cero.<br><br>
+                
+                <b>El Panel Derecho (Editor):</b> Una vez que seleccionas o creas un personaje, este panel se activa. Puedes usar el botón '+ Add sprite' para seleccionar imágenes .png o .jpg desde tu computadora. La lista de sprites mostrará todas las expresiones que el personaje tiene actualmente (marcadas como EXISTING) y las nuevas que estás añadiendo. Puedes hacer clic en cualquier sprite para ver cómo luce en la ventana de 'Preview' (Vista previa). Finalmente, presiona el botón de confirmación en la parte inferior para guardar tus cambios e importar los sprites.<br><br>
+            </span>
+            
+        `,
+        Character_Offset_title: "¿Que es el Editor de Offset 2D?",
+        Character_Offset_text: `
+            <span class="mark">
+                El Editor de Offset de Personajes 2D es una herramienta visual diseñada para alinear y escalar los sprites de tus personajes correctamente. Dado que las imágenes personalizadas pueden variar mucho en resolución y espacios en blanco, es posible que no se centren perfectamente en la pantalla por defecto. Esta herramienta te permite ajustar su posición y tamaño exactos para que luzcan impecables en las escenas de novela visual. Todos los ajustes se guardan automáticamente en un archivo 'config.json' dentro de la carpeta específica del personaje.<br><br>
+            </span>
+        `,
+        Character_Offset_usage_text: `
+            <span class="mark">
+                Para usar esta herramienta, simplemente selecciona un personaje del menú desplegable en el panel izquierdo. El editor cargará automáticamente su sprite 'idle' predeterminado en el fondo de referencia visual. Usa el control deslizante <b>Scale</b> (Escala) para hacer al personaje más grande o más pequeño, y los controles <b>Pos X</b> (horizontal) y <b>Pos Y</b> (vertical) para ubicarlo exactamente donde pertenece. Una vez que estés satisfecho con la alineación visual, haz clic en el botón rosa de <b>Save</b> (Guardar) para generar el archivo de configuración y aplicar los cambios de forma global.<br><br>
+            </span>
+            
+        `,
+        Character_Offset_3D_title: "Editor de Desplazamiento 3D (3D Offset)",
+        Character_Offset_3D_usage_text: `
+            <span class="mark">
+                Al igual que el editor 2D, la versión 3D te permite ajustar la escala y posición de tus personajes, pero específicamente para el entorno del juicio en 3D. En el juicio, los personajes se colocan en espacios físicos en 3D (estrados), por lo que configurar la altura y el tamaño correctos es crucial para evitar que parezca que están flotando o hundiéndose en el suelo.<br><br>
+
+                Para usarlo, selecciona un personaje del menú desplegable. El editor lo colocará en un estrado 3D real usando su sprite 'idle' por defecto. Ajusta la <b>Scale</b> (Escala) para que encaje en el estrado, y usa <b>Pos X</b> y <b>Pos Y</b> para centrarlo y asentar sus pies firmemente. Una vez que presiones <b>Save</b> (Guardar), estos valores se añadirán al archivo 'config.json' del personaje junto con la configuración 2D, asegurando que se vean perfectos en ambos modos sin que uno afecte al otro.<br><br>
+            </span>
+        `,
+        Scene2D_text: 
+        `
+        <span class="mark">
+        La escena 2D, también conocida como Introducción, es donde planificas el contexto de la historia que quieres contar. En este modo, es similar a Danganronpa, donde narras una historia en un entorno de novela visual 2D. La diferencia es que tienes todas las pruebas desde el principio, así que tendrás que adaptar la historia a las Pruebas de la Verdad que has añadido. El límite es tu imaginación; puedes fingir que nunca tuviste ninguna prueba, pero la vas adquiriendo gradualmente. Lo que importa es cómo cuentas la historia. Tienes una cantidad increíble de herramientas para hacer que esa historia sea lo mejor posible, aunque, obviamente, esas herramientas están limitadas por lo que el Danganronpa original puede hacer.<br><br>       
+                            
+         </span>
+        `,
+        Scene2D_title: "Escena 2D",
+        CH_Expressions_title: "Expresiones de Personajes",
+        functions_scene_title: "Como usar funciones en la escena",
+        functions_scene_text: 
+        `
+        <span class="mark">
+
+        (Actualmente limitado a 2D solo en la versión beta 1.0)
+
+        Esto se usa junto con el script personalizado. Funciona usando '!' al principio de la línea para escribir el método manualmente. Se puede usar para tareas muy específicas, pero también permite llamar a funciones que ya existen porque están cargadas en la escena actual. Por ejemplo, en la escena 3D:<br><br>
+
+        <code class="inline-code">! <span class="c-keyword"> CharacterScript</span>.<span class="c-method">Health_loss</span>(life: <span class="c-class">int</span> = <span class="c-number">15</span>)</code><br><br>
+
+        <br><br>
+
+        Esto significa que también puedes quitar o incluso añadir vida. Esa es su utilidad.
+
+        </span>
+        `,
+        how_to_read_title: "Como leer la documentación",
+        how_to_read_text: `
+            <span class="mark">
+                Cuando mires las secciones de eventos, verás líneas que parecen código de programación. Es solo un formato específico para decirle al motor exactamente qué hacer. Aquí tienes un desglose de cómo leerlas:<br><br>
+
+                <b>El Punto (.)</b><br>
+                A menudo verás cosas como <code class="inline-code"><span class="c-class">CharacterScript</span>.<span class="c-method">Change_bg</span></code>. La primera palabra (CharacterScript, GlobalSound, CharacterList) es el administrador interno del motor. El punto ( . ) lo conecta con la acción específica que quieres ejecutar.<br><br>
+
+                <b>Los Paréntesis ( )</b><br>
+                Estos contienen los <b>Parámetros</b> (los detalles específicos que la acción necesita para funcionar). Si una acción no necesita detalles, los paréntesis estarán vacíos <code class="inline-code">()</code>. Si los necesita, debes poner los valores dentro de ellos.<br><br>
+
+                <b>Parámetros y Tipos de Datos</b><br>
+                Dentro de los paréntesis, la documentación te dice qué tipo de datos debes insertar:
+                <br>
+                - <b>String:</b> Significa texto. <b>Debes</b> escribir tu valor entre comillas. Ejemplo: <code class="inline-code"><span class="c-string">"Chiaki"</span></code> o <code class="inline-code"><span class="c-string">"Idle"</span></code>.<br>
+                - <b>Int o Float:</b> Significa números (Int es un número entero, Float es un decimal). No uses comillas. Ejemplo: <code class="inline-code"><span class="c-number">50</span></code> o <code class="inline-code"><span class="c-number">1.5</span></code>.<br><br>
+
+                <b>Valores Predeterminados (=)</b><br>
+                Si un parámetro tiene un signo de igual (ej. <code class="inline-code">FOV : <span class="c-class">Int</span> = <span class="c-number">50</span></code>), significa que este parámetro es <b>opcional</b>. Si simplemente lo dejas vacío, el motor asumirá automáticamente que es 50. Solo necesitas escribir un número si quieres un resultado diferente.<br><br>
+            </span>
+        `,
     }
 };
 

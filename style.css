@@ -293,6 +293,125 @@ main {
     background: #cccccc; 
 }
 
+/* landing page */
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 1; 
+}
+
+#landing-logo {
+    width: auto;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 8px 6px rgba(0,0,0,0.6));
+    animation: floating 4s ease-in-out infinite;
+}
+
+.landing-box {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.landing-title {
+    font-family: 'GoodbyeDespair', Courier, monospace;
+    font-size: 42px;
+    color: #000000;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.landing-desc {
+    font-size: 22px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* === BOTÓN DE ITCH.IO === */
+.itch-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #fa5c5c; /* Rojo clásico de itch.io, cámbialo a rosa #ff52a2 si prefieres estilo Dangan */
+    color: #ffffff;
+    font-family: 'GoodbyeDespair', Courier, monospace;
+    font-size: 28px;
+    text-decoration: none;
+    padding: 20px 40px;
+    border-radius: 8px;
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.8);
+    transition: all 0.2s ease-in-out;
+}
+
+.itch-btn:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.9);
+    background-color: #ff6b6b;
+}
+
+.itch-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+}
+
+.itch-icon {
+    width: 45px;
+    height: 45px;
+}
+
+/* === BOTONES SECUNDARIOS (BALAS) === */
+.landing-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.landing-links .url_bullets {
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: transform 0.2s ease;
+}
+
+.landing-links .url_bullets:hover {
+    transform: scale(1.05);
+}
+
+.landing-footer {
+    margin-top: 40px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
 /* parallax type shi */
 @keyframes movebg {
   from {
