@@ -75,11 +75,11 @@
                         <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_3d">3D Editor</a>
 
                         <div class="sub-menu">
-                            <a class="url_bullets" href="#Editor3D_introduction" data-i18n="sub_shared_song">3D Scene</a>
-                            <a class="url_bullets" href="#NonStopDebates" data-i18n="sub_shared_exp">Non Stop Debates</a>
-                            <a class="url_bullets" href="#ChooseCulprit" data-i18n="sub_shared_voice">Choose Culprit</a>
-                            <a class="url_bullets" href="#ChooseAnswer" data-i18n="sub_shared_snd">Choose Answer</a>
-                            <a class="url_bullets" href="#ChooseEvidence" data-i18n="sub_shared_ba">Choose Evidence</a>
+                            <a class="url_bullets" href="#Editor3D_introduction" data-i18n="sub_shared_intro">3D Scene</a>
+                            <a class="url_bullets" href="#NonStopDebates" data-i18n="sub_shared_nsd">Non Stop Debates</a>
+                            <a class="url_bullets" href="#ChooseCulprit" data-i18n="sub_shared_culprit">Choose Culprit</a>
+                            <a class="url_bullets" href="#ChooseAnswer" data-i18n="sub_shared_answer">Choose Answer</a>
+                            <a class="url_bullets" href="#ChooseEvidence" data-i18n="sub_shared_evidence">Choose Evidence</a>
                         </div>
                     </li>
                     <li>
@@ -539,11 +539,10 @@
 
                 </section>
 
-                <section class="letter_style" id="Editor3D_introduction">
-                    <h1 data-i18n="shared_3d_title">3D Editor</h1>
+                <section class="letter_style">
                     
                     <!-- 3D Editor Introduction -->
-                    <h2 data-i18n="sub_3d_intro_title">3D Scene</h2>
+                    <h2 data-i18n="sub_3d_shared_intro" id="Editor3D_introduction">3D Scene</h2>
                     <p data-i18n="text_shared_3d">
                         <span class="mark">
                             The 3D Editor is the core of the Class Trial experience. Unlike the 2D Editor, which is designed for narrative and exposition, the 3D environment is where the actual gameplay happens. Here you manage the podiums, the camera movements, and the interactive debates where the player must find contradictions using Truth Bullets.
@@ -567,37 +566,41 @@
                         </span>
                     </p>
 
-                    <h2 id="NonStopDebates" data-i18n="sub_shared_exp">Non Stop Debates</h2>
+                    <h2 id="NonStopDebates" data-i18n="sub_shared_nsd" id="NonStopDebates">Non Stop Debates</h2>
                     <p data-i18n="text_3d_nsd">
                         <span class="mark">
                             This is the main event of the trial. The Non Stop Debate block allows you to configure a sequence of dialogue lines that advance automatically. You must define which character speaks, select a specific word or phrase to act as a "Weak Point," and assign the correct Truth Bullet that the player must shoot to break that argument.
                         </span>
-                        <img src="assets/examples/nonstopdebate.png" alt="" width="100%" height="100%"><br><br>
+                        
                     </p>
+                    <img src="assets/examples/nonstopdebate.png" alt="" width="100%" height="100%"><br><br>
 
-                    <h2 id="ChooseCulprit" data-i18n="sub_shared_voice">Choose Culprit</h2>
+                    <h2 id="ChooseCulprit" data-i18n="sub_shared_culprit" id="ChooseCulprit">Choose Culprit</h2>
                     <p data-i18n="text_3d_cc">
                         <span class="mark">
                             This event pauses the trial and forces the player to point out a suspect among all the characters currently present in the 3D room. In the editor, you only need to select which character is the "Correct" answer for the story to proceed.
                         </span>
-                        <img src="assets/examples/choose_culpri.png" alt="" width="50%" height="50%"><br><br>
+                        
                     </p>
+                    <img src="assets/examples/choose_culpri.png" alt="" width="50%" height="50%"><br><br>
 
-                    <h2 id="ChooseAnswer" data-i18n="sub_shared_snd">Choose Answer</h2>
+                    <h2 id="ChooseAnswer" data-i18n="sub_shared_answer" id="ChooseAnswer">Choose Answer</h2>
                     <p data-i18n="text_3d_ca">
                         <span class="mark">
                             Sometimes a question has multiple options. This block generates a multiple-choice menu on the screen (A, B, or C). You must write the text for the options and define which one is the correct path. Choosing the wrong answer will result in a health penalty.
                         </span>
-                        <img src="assets/examples/Answer.png" alt="" width="50%" height="50%"><br><br>
+                        
                     </p>
+                    <img src="assets/examples/Answer.png" alt="" width="50%" height="50%"><br><br>
 
-                    <h2 id="ChooseEvidence" data-i18n="sub_shared_ba">Choose Evidence</h2>
+                    <h2 id="ChooseEvidence" data-i18n="sub_shared_evidence" id="ChooseEvidence">Choose Evidence</h2>
                     <p data-i18n="text_3d_ce">
                         <span class="mark">
                             This block opens the player's Truth Bullet menu, demanding they present a specific piece of evidence to back up a claim. You configure this by simply selecting the specific bullet that counts as the right answer. Presenting the wrong evidence will penalize the player's health.
                         </span>
-                        <img src="assets/examples/Choose_evidence.png" alt="" width="50%" height="50%"><br><br>
+                        
                     </p>
+                    <img src="assets/examples/Choose_evidence.png" alt="" width="50%" height="50%"><br><br>
                 </section>
 
                 <section class="letter_style">
