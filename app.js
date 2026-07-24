@@ -449,7 +449,7 @@ const langData = {
             </span>
         `,
         shared_3d_title: "3D Editor",
-        sub_3d_intro_title: "Introduction",
+        sub_3d_intro_title: "3D Scene",
         text_shared_3d: `
             <span class="mark">
                 The 3D Editor is the core of the Class Trial experience. Unlike the 2D Editor, which is designed for narrative and exposition, the 3D environment is where the actual gameplay happens. Here you manage the podiums, the camera movements, and the interactive debates where the player must find contradictions using Truth Bullets.
@@ -943,7 +943,7 @@ const langData = {
             </span>
         `,
         shared_3d_title: "Editor 3D",
-        sub_3d_intro_title: "Introducción",
+        sub_3d_intro_title: "Escena 3D",
         text_shared_3d: `
             <span class="mark">
                 El Editor 3D es el núcleo de la experiencia del Juicio Escolar. A diferencia del Editor 2D, que está diseñado para la narrativa y la exposición, el entorno 3D es donde ocurre la jugabilidad real. Aquí gestionas los estrados, los movimientos de cámara y los debates interactivos donde el jugador debe encontrar contradicciones disparando Balas de la Verdad.
