@@ -18,14 +18,14 @@ const langData = {
         sub_ev_cl: "CharacterList Events",
         nav_2d: "2D Editor",
         nav_3d: "3D Editor",
-        sub_shared_exp: "Character Expressions",
-        sub_shared_voice: "Character Voices",
-        sub_shared_snd: "Character Sounds",
-        sub_shared_ba: "Before and After",
+        sub_shared_exp: "Non Stop Debates",
+        sub_shared_voice: "Choose Culprit",
+        sub_shared_snd: "Choose Answer",
+        sub_shared_ba: "Choose Evidence",
         sub_shared_act: "How to use actions scenes",
         sub_shared_mem: "How to use Memory block",
         sub_shared_bg: "Change Background",
-        sub_shared_song: "Change Song",
+        sub_shared_song: "Introduction",
         sub_shared_court: "Show 3D Court",
         sub_shared_img: "Set Images",
         sub_shared_vid: "Set Videos",
@@ -38,7 +38,7 @@ const langData = {
         nav_offset: "Character Editor",
         sub_offset_what: "What is Character Editor?",
         nav_scene: "Using functions on the scene",
-        sub_scene_how: "How this works",
+        sub_scene_how: "How to use functions in the scene",
         scene2d_btn: "2D Scene",
         title_intro: "Introduction",
         text_intro: `
@@ -341,25 +341,27 @@ const langData = {
         custom_script_title: "What is a Custom Script",
         custom_script_text: `
             <span class="mark">
-                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
+                            <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
 
-                In the custom script events section, there's what's called a 'custom block'. It's just a normal block, but the difference is that you don't add actions through the editor; you add them through code (see Event Terms for more information). For example, thanks to the use of CharacterScript, you can call each function separately and combine them to create a specific event in the 2D editor. <br><br>
+                            In the custom script events section, there's what's called a 'custom block'. It's just a normal block, but the difference is that you don't add actions through the editor; you add them through code (see Event Terms for more information). For example, thanks to the use of CharacterScript or CharacterList, you can call each function separately and combine them to create a specific event. <br><br>
 
-                An important point is that, for ease of use, whenever you write a function (this only applies to beta 1.0), 'do CharacterScript' will be written directly before your code. The only exception is when you call the 'GlobalSound' function.<br><br>
-                
-                If you write a colon ' : ' in the middle of a line of text, the editor interprets it as character dialogue, for example, 'Hajime: Hi'.<br><br>
-                
-                If you write an exclamation mark ' ! ' at the beginning of the line, you have to manually write the action you want to execute, for example, '! Script.Method'. You'll realize that this is the most basic and primitive way to program in the editor, but it can be used for very specific things and to execute functions that only exist in the current scene (see "Using functions on the scene" for more information).
-            </span>
+                            An important point is that, for ease of use, whenever you write a function, if you are in the 2D Editor it will input 'do CharacterScript' but in the 3D Editor it will input 'do CharacterList' that will be written directly before your code. The only exception is when you call the 'GlobalSound' function.<br><br>
+                            
+                            If you write a colon ' : ' in the middle of a line of text, the editor interprets it as character dialogue, for example, 'Hajime: Hi'.<br><br>
+                            
+                            if you write a exclamation mark ' ! ' at the beginning of the line, you have to manually write the action you want to execute, for example, '! Script.Method'. You'll realize that this is the most basic way and primitive to program in the editor, but it can be used for very specific things and to execute functions that only exist in the current scene (see "How to use functions on the scene" for more information).
+                        </span>
             <img src="assets/examples/custom_script.png" alt="" width="50%" height="50%"><br><br>
         `,
         custom_script_usage_title: "Usage",
         custom_script_usage_text: `
             <span class="mark">
-                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
+                                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
 
-                Functions that don't use ! are simply executing CharacterScript, and to generate dialogue text, simply type your character's name followed by : and the text you want it to say (See Event Terms for information on callable functions).<br><br>
-            </span>
+                                Functions that don't use ! are simply executing 'do "MethodScript" ' CharacterScript for 2D Editor and CharacterList for 3D Editor, and to generate dialogue text, simply type your character's name followed by ' : ' and the text you want it to say (See Event Terms for information on callable functions).<br><br>
+
+                                
+                            </span>
             <img src="assets/examples/scripting2.png" alt="" width="50%" height="50%"><br><br>
         `,
         Character_Editor_title: "What is the Character Editor?",
@@ -413,14 +415,17 @@ const langData = {
         functions_scene_text:
         `
         <span class="mark">
-            (Currently limited to 2D only in beta 1.0)
-            This is used in conjunction with the custom script. It works by using '!' at the beginning of the line to write the method yourself. This can be used for very specific tasks, but it also allows you to call functions that already exist because they are loaded into the scene you are in. For example, in the 3D scene,<br><br>
+                            This is used in conjunction with the custom script. It works by using ' ! ' at the beginning of the line to write the method yourself. This can be used for very specific tasks, but it also allows you to call functions that already exist because they are loaded into the scene you are in. For example, in the 3D scene,<br><br>
 
-            <code class="inline-code">! <span class="c-keyword"> CharacterScript</span>.<span class="c-method">Health_loss</span>(life: <span class="c-class">int</span> = <span class="c-number">15</span>)</code><br><br>
-
-                <br><br>
-                means you can also remove or even add life. That's its usefulness.
-        </span>
+                            <code class="inline-code">! <span class="c-keyword"> CharacterList</span>.<span class="c-method">focus_CH</span>(Character: <span class="c-class">String</span>, FOV: <span class="c-number">float</span>, Speed: <span class="c-class">float</span>)</code><br>
+                            or in the 2D scene<br>
+                            <code class="inline-code">! <span class="c-keyword"> CharacterScript</span>.<span class="c-method">Screen_Shake</span>(Node Affected: <span class="c-class">ej: "all"</span>, intensity: <span class="c-class">float</span> = <span class="c-number">25.0</span>, duration: <span class="c-class">float</span> = <span class="c-number">1.5</span>)</code><br>
+                            and you can also call functions that exist in the scene :<br>
+                            (This example only works in 3D Scene because Health_loss doesn't exist in 2D)<br>
+                            <code class="inline-code">! <span class="c-method">Health_loss</span>(life: <span class="c-class">int</span> = <span class="c-number">15</span>)</code><br><br>
+                             <br>
+                              means you can also remove or even add life. That's its usefulness.
+                        </span>
         `,
         how_to_read_title: "Como leer la documentacion",
         how_to_read_text: `
@@ -443,6 +448,46 @@ const langData = {
                 If a parameter has an equals sign (e.g., <code class="inline-code">FOV : <span class="c-class">Int</span> = <span class="c-number">50</span></code>), it means this parameter is <b>optional</b>. If you just leave it empty, the engine will automatically assume it is 50. You only need to write a number if you want a different result.<br><br>
             </span>
         `,
+        shared_3d_title: "3D Editor",
+        sub_3d_intro_title: "Introduction",
+        text_shared_3d: `
+            <span class="mark">
+                The 3D Editor is the core of the Class Trial experience. Unlike the 2D Editor, which is designed for narrative and exposition, the 3D environment is where the actual gameplay happens. Here you manage the podiums, the camera movements, and the interactive debates where the player must find contradictions using Truth Bullets.
+            </span>
+        `,
+        sub_3d_shared_features_title: "Shared Features",
+        text_3d_shared_features: `
+            <span class="mark">
+                Many of the tools you learned to use in the 2D Editor are also available in the 3D Editor. They function identically, so if you need a refresher on how they work, you can click on the following links to review their documentation:<br><br>
+                
+                • <a href="#CharacterExpressions" style="color: #ff9822; text-decoration: underline;">Character Expressions</a><br>
+                • <a href="#CharacterVoices" style="color: #ff9822; text-decoration: underline;">Character Voices</a><br>
+                • <a href="#CharacterSounds" style="color: #ff9822; text-decoration: underline;">Character Sounds</a><br>
+                • <a href="#ChangeMusic" style="color: #ff9822; text-decoration: underline;">Change Song</a><br>
+                • <a href="#SetImage" style="color: #ff9822; text-decoration: underline;">Set Images</a><br>
+                • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Set Videos</a><br>
+            </span>
+        `,
+        text_3d_nsd: `
+            <span class="mark">
+                This is the main event of the trial. The Non Stop Debate block allows you to configure a sequence of dialogue lines that advance automatically. You must define which character speaks, select a specific word or phrase to act as a "Weak Point," and assign the correct Truth Bullet that the player must shoot to break that argument.
+            </span>
+        `,
+        text_3d_cc: `
+            <span class="mark">
+                This event pauses the trial and forces the player to point out a suspect among all the characters currently present in the 3D room. In the editor, you only need to select which character is the "Correct" answer for the story to proceed.
+            </span>
+        `,
+        text_3d_ca: `
+            <span class="mark">
+                Sometimes a question has multiple options. This block generates a multiple-choice menu on the screen (A, B, or C). You must write the text for the options and define which one is the correct path. Choosing the wrong answer will result in a health penalty.
+            </span>
+        `,
+        text_3d_ce: `
+            <span class="mark">
+                This block opens the player's Truth Bullet menu, demanding they present a specific piece of evidence to back up a claim. You configure this by simply selecting the specific bullet that counts as the right answer. Presenting the wrong evidence will penalize the player's health.
+            </span>
+        `,
     },
     es: {
         nav_intro: "Introduccion",
@@ -463,14 +508,14 @@ const langData = {
         sub_ev_cl: "Eventos CharacterList",
         nav_2d: "Editor 2D",
         nav_3d: "Editor 3D",
-        sub_shared_exp: "Expresiones de Personajes",
-        sub_shared_voice: "Voces de Personajes",
-        sub_shared_snd: "Sonidos de Personajes",
-        sub_shared_ba: "Antes y Despues",
+        sub_shared_exp: "Non Stop Debates",
+        sub_shared_voice: "Escojer al culpable",
+        sub_shared_snd: "Escojer la respuesta",
+        sub_shared_ba: "Escojer la evidencia",
         sub_shared_act: "Como usar escenas de accion",
         sub_shared_mem: "Como usar el bloque de memoria",
         sub_shared_bg: "Cambiar Fondo",
-        sub_shared_song: "Cambiar Cancion",
+        sub_shared_song: "Introduccion",
         sub_shared_court: "Mostrar Tribunal 3D",
         sub_shared_img: "Asignar Imagenes",
         sub_shared_vid: "Asignar Videos",
@@ -483,7 +528,7 @@ const langData = {
         nav_offset: "Editor de Personajes",
         sub_offset_what: "¿Que es el Editor de Personajes?",
         nav_scene: "Usar funciones en la escena",
-        sub_scene_how: "Como funciona esto",
+        sub_scene_how: "Como usar Funciones en la Escena",
         scene2d_btn: "Escena 2D",
         title_intro: "Introduccion",
         text_intro: `
@@ -789,13 +834,13 @@ const langData = {
             <span class="mark">
                 <span class="warning">ADVERTENCIA: Debes tener cuidado al usar estos eventos; distinguen entre mayúsculas y minúsculas, y cualquier error tipográfico ciertamente causará un cierre inesperado (crash).</span><br>
 
-                En la sección de eventos de custom script (scripts personalizados), existe lo que se llama un 'bloque personalizado' (custom block). Es solo un bloque normal, pero la diferencia es que no añades las acciones a través del editor visual; las añades a través de código (consulta los Términos de Eventos para más información). Por ejemplo, gracias al uso de CharacterScript, puedes llamar cada función por separado y combinarlas para crear un evento específico en el editor 2D.<br><br>
+                En la sección de eventos de custom script (scripts personalizados), existe lo que se llama un 'bloque personalizado' (custom block). Es solo un bloque normal, pero la diferencia es que no añades las acciones a través del editor visual; las añades a través de código (consulta "Como usar funciones en la escena" para mas información). Por ejemplo, gracias al uso de CharacterScript, puedes llamar cada función por separado y combinarlas para crear un evento específico.<br><br>
 
-                Un punto importante es que, para facilitar su uso, siempre que escribas una función (esto solo aplica a la beta 1.0), se escribirá 'do CharacterScript' automáticamente antes de tu código. La única excepción es cuando llamas a la función 'GlobalSound'.<br><br>
+                Un punto importante es que, para facilitar su uso, siempre que escribas una función, y estes en el Editor 2D, se escribirá 'do CharacterScript' pero en el editor 3D se escribirá 'do GlobalScript', lo cual será escrito automáticamente antes de tu código. La única excepción es cuando llamas a la función 'GlobalSound'.<br><br>
                 
                 Si escribes dos puntos ' : ' en el medio de una línea de texto, el editor lo interpreta como un diálogo de personaje, por ejemplo, 'Hajime: Hola'.<br><br>
                 
-                Si escribes un signo de exclamación ' ! ' al principio de la línea, tendrás que escribir manualmente la acción que quieres ejecutar, por ejemplo, '! Script.Method()'. Te darás cuenta de que esta es la forma más básica y primitiva de programar en el editor, pero se puede usar para cosas muy específicas y para ejecutar funciones que solo existen en la escena actual (consulta "Usar funciones en la escena" para más información).
+                Si escribes un signo de exclamación ' ! ' al principio de la línea, tendrás que escribir manualmente la acción que quieres ejecutar, por ejemplo, '! Script.Method()'. Te darás cuenta de que esta es la forma más básica y primitiva de programar en el editor, pero se puede usar para cosas muy específicas y para ejecutar funciones que solo existen en la escena actual (consulta "Como usar funciones en la escena" para más información).
             </span>
             <img src="assets/examples/custom_script.png" alt="" width="50%" height="50%"><br><br>
         `,
@@ -804,7 +849,7 @@ const langData = {
             <span class="mark">
                 <span class="warning">ADVERTENCIA: Debes tener cuidado al usar estos eventos; distinguen entre mayúsculas y minúsculas, y cualquier error tipográfico ciertamente causará un cierre inesperado (crash).</span><br>
 
-                Las funciones que no usan ! simplemente están ejecutando CharacterScript, y para generar el texto de diálogo, simplemente escribe el nombre de tu personaje seguido de : y el texto que quieres que diga (Consulta los Términos de Eventos para obtener información sobre las funciones llamables).<br><br>
+                Las funciones que no usan ! simplemente estan ejecutando 'do MethodScript' en el editor 2D es 'CharacterScript' y en el 3D es 'CharacterList', y para generar el texto de diálogo, simplemente escribe el nombre de tu personaje seguido de ' : ' y el texto que quieres que diga (Consulta los Términos de Eventos para obtener información sobre las funciones llamables).<br><br>
             </span>
             <img src="assets/examples/scripting2.png" alt="" width="50%" height="50%"><br><br>
         `,
@@ -859,13 +904,18 @@ const langData = {
         `
         <span class="mark">
 
-        (Actualmente limitado a 2D solo en la versión beta 1.0)
+        Esto se usa junto con el script personalizado. Funciona usando ' ! ' al principio de la línea para escribir el método manualmente. Se puede usar para tareas muy específicas, pero también permite llamar a funciones que ya existen porque están cargadas en la escena actual.<br><br>
 
-        Esto se usa junto con el script personalizado. Funciona usando '!' al principio de la línea para escribir el método manualmente. Se puede usar para tareas muy específicas, pero también permite llamar a funciones que ya existen porque están cargadas en la escena actual. Por ejemplo, en la escena 3D:<br><br>
+        <code class="inline-code">! <span class="c-keyword"> CharacterList</span>.<span class="c-method">focus_CH</span>(Character: <span class="c-class">String</span>, FOV: <span class="c-number">float</span>, Speed: <span class="c-class">float</span>)</code><br>
+        o tambien en la escena 2D<br>
 
-        <code class="inline-code">! <span class="c-keyword"> CharacterScript</span>.<span class="c-method">Health_loss</span>(life: <span class="c-class">int</span> = <span class="c-number">15</span>)</code><br><br>
+        <code class="inline-code">! <span class="c-keyword"> CharacterScript</span>.<span class="c-method">Screen_Shake</span>(Node Affected: <span class="c-class">ej: "all"</span>, intensity: <span class="c-class">float</span> = <span class="c-number">25.0</span>, duration: <span class="c-class">float</span> = <span class="c-number">1.5</span>)</code><br>
 
-        <br><br>
+        y puedes usar funciones que existen en la escena:<br> (Esto solo funciona en la escena 3D porque Health_loss no existe en la escena 2D)<br>
+        <code class="inline-code">! <span class="c-method">Health_loss</span>(life: <span class="c-class">int</span> = <span class="c-number">15</span>)</code><br><br>
+
+
+        <br>
 
         Esto significa que también puedes quitar o incluso añadir vida. Esa es su utilidad.
 
@@ -890,6 +940,46 @@ const langData = {
 
                 <b>Valores Predeterminados (=)</b><br>
                 Si un parámetro tiene un signo de igual (ej. <code class="inline-code">FOV : <span class="c-class">Int</span> = <span class="c-number">50</span></code>), significa que este parámetro es <b>opcional</b>. Si simplemente lo dejas vacío, el motor asumirá automáticamente que es 50. Solo necesitas escribir un número si quieres un resultado diferente.<br><br>
+            </span>
+        `,
+        shared_3d_title: "Editor 3D",
+        sub_3d_intro_title: "Introducción",
+        text_shared_3d: `
+            <span class="mark">
+                El Editor 3D es el núcleo de la experiencia del Juicio Escolar. A diferencia del Editor 2D, que está diseñado para la narrativa y la exposición, el entorno 3D es donde ocurre la jugabilidad real. Aquí gestionas los estrados, los movimientos de cámara y los debates interactivos donde el jugador debe encontrar contradicciones disparando Balas de la Verdad.
+            </span>
+        `,
+        sub_3d_shared_features_title: "Funciones Compartidas",
+        text_3d_shared_features: `
+            <span class="mark">
+                Muchas de las herramientas que aprendiste a usar en el Editor 2D también están disponibles en el Editor 3D. Funcionan de manera idéntica, por lo que si necesitas repasar cómo se utilizan, puedes hacer clic en los siguientes enlaces para revisar su documentación original:<br><br>
+                
+                • <a href="#CharacterExpressions" style="color: #ff9822; text-decoration: underline;">Expresiones de Personajes</a><br>
+                • <a href="#CharacterVoices" style="color: #ff9822; text-decoration: underline;">Voces de Personajes</a><br>
+                • <a href="#CharacterSounds" style="color: #ff9822; text-decoration: underline;">Sonidos de Personajes</a><br>
+                • <a href="#ChangeMusic" style="color: #ff9822; text-decoration: underline;">Cambiar Canción</a><br>
+                • <a href="#SetImage" style="color: #ff9822; text-decoration: underline;">Asignar Imágenes</a><br>
+                • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Asignar Videos</a><br>
+            </span>
+        `,
+        text_3d_nsd: `
+            <span class="mark">
+                Este es el evento principal del juicio. El bloque de Non Stop Debate (Debate Sin Fin) te permite configurar una secuencia de líneas de diálogo que avanzan automáticamente. Debes definir qué personaje habla, seleccionar una palabra o frase específica para que actúe como un "Punto Débil", y asignar la Bala de la Verdad correcta que el jugador debe disparar para romper ese argumento.
+            </span>
+        `,
+        text_3d_cc: `
+            <span class="mark">
+                Este evento pausa el juicio y obliga al jugador a señalar a un sospechoso entre todos los personajes presentes actualmente en la sala 3D. En el editor, solo necesitas seleccionar qué personaje es la respuesta "Correcta" para que la historia continúe.
+            </span>
+        `,
+        text_3d_ca: `
+            <span class="mark">
+                A veces una pregunta tiene múltiples opciones. Este bloque genera un menú de opciones múltiples en la pantalla (A, B o C). Debes escribir el texto de las opciones y definir cuál es el camino correcto. Elegir la respuesta equivocada resultará en una penalización de vida.
+            </span>
+        `,
+        text_3d_ce: `
+            <span class="mark">
+                Este bloque abre el menú de Balas de la Verdad del jugador, exigiéndole que presente una pieza de evidencia específica para respaldar una afirmación. Lo configuras simplemente seleccionando la bala específica que cuenta como la respuesta correcta. Presentar la evidencia equivocada penalizará la vida del jugador.
             </span>
         `,
     }

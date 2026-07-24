@@ -75,17 +75,11 @@
                         <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_3d">3D Editor</a>
 
                         <div class="sub-menu">
-                            <a class="url_bullets" href="#CharacterExpressions_" data-i18n="sub_shared_exp">Character Expressions</a>
-                            <a class="url_bullets" href="#CharacterVoices_" data-i18n="sub_shared_voice">Character Voices</a>
-                            <a class="url_bullets" href="#CharacterSounds_" data-i18n="sub_shared_snd">Character Sounds</a>
-                            <a class="url_bullets" href="#BeforeAndAfter_" data-i18n="sub_shared_ba">Before and After</a>
-                            <a class="url_bullets" href="#how-editors-work_" data-i18n="sub_shared_act">How to use actions scenes</a>
-                            <a class="url_bullets" href="#asynchronous-functions_" data-i18n="sub_shared_mem">How to use Memory block</a>
-                            <a class="url_bullets" href="#introduction_" data-i18n="sub_shared_bg">Change Background</a>
-                            <a class="url_bullets" href="#introduction_1" data-i18n="sub_shared_song">Change Song</a>
-                            <a class="url_bullets" href="#introduction_2" data-i18n="sub_shared_court">Show 3D Court</a>
-                            <a class="url_bullets" href="#introduction_3" data-i18n="sub_shared_img">Set Images</a>
-                            <a class="url_bullets" href="#introduction_3" data-i18n="sub_shared_vid">Set Videos</a>
+                            <a class="url_bullets" href="#Editor3D_introduction" data-i18n="sub_shared_song">Introduction</a>
+                            <a class="url_bullets" href="#NonStopDebates" data-i18n="sub_shared_exp">Non Stop Debates</a>
+                            <a class="url_bullets" href="#ChooseCulprit" data-i18n="sub_shared_voice">Choose Culprit</a>
+                            <a class="url_bullets" href="#ChooseAnswer" data-i18n="sub_shared_snd">Choose Answer</a>
+                            <a class="url_bullets" href="#ChooseEvidence" data-i18n="sub_shared_ba">Choose Evidence</a>
                         </div>
                     </li>
                     <li>
@@ -94,6 +88,7 @@
                         <div class="sub-menu">
                             <a class="url_bullets" href="#CustomScripting" data-i18n="sub_custom_what">What is Custom Scripting?</a>
                             <a class="url_bullets" href="#Usage" data-i18n="sub_shared_usage">Usage</a>
+                            <a class="url_bullets" href="#how-to-use-functions-in-the-scene" data-i18n="sub_scene_how">How to use functions in the scene</a>
                         </div>
                     </li>
                     <li>
@@ -105,13 +100,6 @@
                             <a class="url_bullets" href="#2D_Usage" data-i18n="sub_shared_usage_2D">2D offset editor</a>
                             <a class="url_bullets" href="#3D_Usage" data-i18n="sub_shared_usage_3D">3D offset editor</a>
                             <a class="url_bullets" href="#counter-and-consent" data-i18n="sub_start_cc">Counter and Consent</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="url_bullets bullet_main bullet-toggle" data-i18n="nav_scene">Using functions on the scene</a>
-
-                        <div class="sub-menu">
-                            <a class="url_bullets" href="#how-to-use-functions-in-the-scene" data-i18n="sub_scene_how">How to use functions in the scene</a>
                         </div>
                     </li>
                 </ul>
@@ -551,12 +539,64 @@
 
                 </section>
 
-                <section class="letter_style">
+                <section class="letter_style" id="Editor3D_introduction">
                     <h1 data-i18n="shared_3d_title">3D Editor</h1>
+                    
+                    <!-- 3D Editor Introduction -->
+                    <h2 data-i18n="sub_3d_intro_title">Introduction</h2>
                     <p data-i18n="text_shared_3d">
                         <span class="mark">
-                            placeholder
+                            The 3D Editor is the core of the Class Trial experience. Unlike the 2D Editor, which is designed for narrative and exposition, the 3D environment is where the actual gameplay happens. Here you manage the podiums, the camera movements, and the interactive debates where the player must find contradictions using Truth Bullets.
                         </span>
+                        
+                    </p>
+                    
+
+                    <!-- Cross-references to 2D Editor features -->
+                    <h2 data-i18n="sub_3d_shared_features_title">Shared Features</h2>
+                    <p data-i18n="text_3d_shared_features">
+                        <span class="mark">
+                            Many of the tools you learned to use in the 2D Editor are also available in the 3D Editor. They function identically, so if you need a refresher on how they work, you can click on the following links to review their documentation:<br><br>
+                            
+                        • <a href="#CharacterExpressions" style="color: #ff9822; text-decoration: underline;">Character Expressions</a><br>
+                        • <a href="#CharacterVoices" style="color: #ff9822; text-decoration: underline;">Character Voices</a><br>
+                        • <a href="#CharacterSounds" style="color: #ff9822; text-decoration: underline;">Character Sounds</a><br>
+                        • <a href="#ChangeMusic" style="color: #ff9822; text-decoration: underline;">Change Song</a><br>
+                        • <a href="#SetImage" style="color: #ff9822; text-decoration: underline;">Set Images</a><br>
+                        • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Set Videos</a><br>
+                        </span>
+                    </p>
+
+                    <h2 id="NonStopDebates" data-i18n="sub_shared_exp">Non Stop Debates</h2>
+                    <p data-i18n="text_3d_nsd">
+                        <span class="mark">
+                            This is the main event of the trial. The Non Stop Debate block allows you to configure a sequence of dialogue lines that advance automatically. You must define which character speaks, select a specific word or phrase to act as a "Weak Point," and assign the correct Truth Bullet that the player must shoot to break that argument.
+                        </span>
+                        <img src="assets/examples/nonstopdebate.png" alt="" width="100%" height="100%"><br><br>
+                    </p>
+
+                    <h2 id="ChooseCulprit" data-i18n="sub_shared_voice">Choose Culprit</h2>
+                    <p data-i18n="text_3d_cc">
+                        <span class="mark">
+                            This event pauses the trial and forces the player to point out a suspect among all the characters currently present in the 3D room. In the editor, you only need to select which character is the "Correct" answer for the story to proceed.
+                        </span>
+                        <img src="assets/examples/choose_culpri.png" alt="" width="50%" height="50%"><br><br>
+                    </p>
+
+                    <h2 id="ChooseAnswer" data-i18n="sub_shared_snd">Choose Answer</h2>
+                    <p data-i18n="text_3d_ca">
+                        <span class="mark">
+                            Sometimes a question has multiple options. This block generates a multiple-choice menu on the screen (A, B, or C). You must write the text for the options and define which one is the correct path. Choosing the wrong answer will result in a health penalty.
+                        </span>
+                        <img src="assets/examples/Answer.png" alt="" width="50%" height="50%"><br><br>
+                    </p>
+
+                    <h2 id="ChooseEvidence" data-i18n="sub_shared_ba">Choose Evidence</h2>
+                    <p data-i18n="text_3d_ce">
+                        <span class="mark">
+                            This block opens the player's Truth Bullet menu, demanding they present a specific piece of evidence to back up a claim. You configure this by simply selecting the specific bullet that counts as the right answer. Presenting the wrong evidence will penalize the player's health.
+                        </span>
+                        <img src="assets/examples/Choose_evidence.png" alt="" width="50%" height="50%"><br><br>
                     </p>
                 </section>
 
@@ -566,13 +606,13 @@
                         <span class="mark">
                             <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
 
-                            In the custom script events section, there's what's called a 'custom block'. It's just a normal block, but the difference is that you don't add actions through the editor; you add them through code (see Event Terms for more information). For example, thanks to the use of CharacterScript, you can call each function separately and combine them to create a specific event in the 2D editor. <br><br>
+                            In the custom script events section, there's what's called a 'custom block'. It's just a normal block, but the difference is that you don't add actions through the editor; you add them through code (see Event Terms for more information). For example, thanks to the use of CharacterScript or CharacterList, you can call each function separately and combine them to create a specific event. <br><br>
 
-                            An important point is that, for ease of use, whenever you write a function (this only applies to beta 1.0), 'do CharacterScript' will be written directly before your code. The only exception is when you call the 'GlobalSound' function.<br><br>
+                            An important point is that, for ease of use, whenever you write a function, if you are in the 2D Editor it will input 'do CharacterScript' but in the 3D Editor it will input 'do CharacterList' that will be written directly before your code. The only exception is when you call the 'GlobalSound' function.<br><br>
                             
                             If you write a colon ' : ' in the middle of a line of text, the editor interprets it as character dialogue, for example, 'Hajime: Hi'.<br><br>
                             
-                            if you write a exclamation mark ' ! ' at the beginning of the line, you have to manually write the action you want to execute, for example, '! Script.Method'. You'll realize that this is the most basic way and primitive to program in the editor, but it can be used for very specific things and to execute functions that only exist in the current scene (see "Using functions on the scene" for more information).
+                            if you write a exclamation mark ' ! ' at the beginning of the line, you have to manually write the action you want to execute, for example, '! Script.Method'. You'll realize that this is the most basic way and primitive to program in the editor, but it can be used for very specific things and to execute functions that only exist in the current scene (see "How to use functions on the scene" for more information).
                         </span>
                         
                     </p>
@@ -583,13 +623,29 @@
                             <span class="mark">
                                 <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
 
-                                Functions that don't use ! are simply executing CharacterScript, and to generate dialogue text, simply type your character's name followed by : and the text you want it to say (See Event Terms for information on callable functions).<br><br>
+                                Functions that don't use ! are simply executing 'do "MethodScript" ' CharacterScript for 2D Editor and CharacterList for 3D Editor, and to generate dialogue text, simply type your character's name followed by ' : ' and the text you want it to say (See Event Terms for information on callable functions).<br><br>
 
                                 
                             </span>
                         
                         </p>
                         <img src="assets/examples/scripting2.png" alt="" width="50%" height="50%"><br><br>
+
+                        <h2 data-i18n="functions_scene_title" id="how-to-use-functions-in-the-scene">how to use functions in the scene</h2>
+                    <p data-i18n="functions_scene_text">
+                        <span class="mark">
+                            This is used in conjunction with the custom script. It works by using ' ! ' at the beginning of the line to write the method yourself. This can be used for very specific tasks, but it also allows you to call functions that already exist because they are loaded into the scene you are in. For example, in the 3D scene,<br><br>
+
+                            <code class="inline-code">! <span class="c-keyword"> CharacterList</span>.<span class="c-method">focus_CH</span>(Character: <span class="c-class">String</span>, FOV: <span class="c-number">float</span>, Speed: <span class="c-class">float</span>)</code><br>
+                            or in the 2D scene<br>
+                            <code class="inline-code">! <span class="c-keyword"> CharacterScript</span>.<span class="c-method">Screen_Shake</span>(Node Affected: <span class="c-class">ej: "all"</span>, intensity: <span class="c-class">float</span> = <span class="c-number">25.0</span>, duration: <span class="c-class">float</span> = <span class="c-number">1.5</span>)</code><br>
+                            and you can also call functions that exist in the scene :<br>
+                            (This example only works in 3D Scene because Health_loss doesn't exist in 2D)<br>
+                            <code class="inline-code">! <span class="c-method">Health_loss</span>(life: <span class="c-class">int</span> = <span class="c-number">15</span>)</code><br><br>
+                             <br>
+                              means you can also remove or even add life. That's its usefulness.
+                        </span>
+                    </p>
                 </section>
 
                 <section class="letter_style">
@@ -646,22 +702,6 @@
                 
                 </section>
 
-                    
-
-                <section class="letter_style">
-                    <h2 data-i18n="functions_scene_title" id="how-to-use-functions-in-the-scene">how to use functions in the scene</h2>
-                    <p data-i18n="functions_scene_text">
-                        <span class="mark">
-                           (Currently limited to 2D only in beta 1.0)
-                            This is used in conjunction with the custom script. It works by using '!' at the beginning of the line to write the method yourself. This can be used for very specific tasks, but it also allows you to call functions that already exist because they are loaded into the scene you are in. For example, in the 3D scene,<br><br>
-
-                            <code class="inline-code">! <span class="c-keyword"> CharacterScript</span>.<span class="c-method">Health_loss</span>(life: <span class="c-class">int</span> = <span class="c-number">15</span>)</code><br><br>
-
-                             <br><br>
-                              means you can also remove or even add life. That's its usefulness.
-                        </span>
-                    </p>
-                </section>
 
             </main>
         </div>  
