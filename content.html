@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danganmake Documentation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/img/Danganmakeicon.ico" type="image/x-icon">
 </head>
 <body>
     <div id="bg"></div>
@@ -50,6 +51,8 @@
                             <a class="url_bullets" href="#globalsound-events" data-i18n="sub_ev_gs">GlobalSound Events</a>
                             <a class="url_bullets" href="#characterscript-events" data-i18n="sub_ev_cs">CharacterScript Events</a>
                             <a class="url_bullets" href="#characterlist-events" data-i18n="sub_ev_cl">CharacterList Events</a>
+                            <a class="url_bullets" href="#scene-functions" data-i18n="sub_ev_sc">Scene Functions</a>
+                            <a class="url_bullets" href="#bbcode-tags" data-i18n="sub_ev_bb">BBcode</a>
                         </div>
                     </li>
                     <li>
@@ -76,6 +79,7 @@
 
                         <div class="sub-menu">
                             <a class="url_bullets" href="#Editor3D_introduction" data-i18n="sub_shared_intro">3D Scene</a>
+                            <a class="url_bullets" href="#Configuration" data-i18n="sub_shared_config">Configuration Menu</a>
                             <a class="url_bullets" href="#NonStopDebates" data-i18n="sub_shared_nsd">Non Stop Debates</a>
                             <a class="url_bullets" href="#ChooseCulprit" data-i18n="sub_shared_culprit">Choose Culprit</a>
                             <a class="url_bullets" href="#ChooseAnswer" data-i18n="sub_shared_answer">Choose Answer</a>
@@ -99,7 +103,7 @@
                             <a class="url_bullets" href="#CH_Usage" data-i18n="sub_shared_usage">Usage</a>
                             <a class="url_bullets" href="#2D_Usage" data-i18n="sub_shared_usage_2D">2D offset editor</a>
                             <a class="url_bullets" href="#3D_Usage" data-i18n="sub_shared_usage_3D">3D offset editor</a>
-                            <a class="url_bullets" href="#counter-and-consent" data-i18n="sub_start_cc">Counter and Consent</a>
+                            <a class="url_bullets" href="#Counter_and_Consent" data-i18n="sub_start_cc">Special Sprites</a>
                         </div>
                     </li>
                 </ul>
@@ -244,6 +248,7 @@
                             - Intro -> This is simply the 2D editor for character dialogue<br>
                             - Trial -> This is simply the 3D editor for controlling gameplay and dialogue<br>
                             - Settings -> Return to the section to configure the title and description<br>
+                            - Assets -> This is where you configure the assets present<br>
                             - Test -> This is for testing your creation in either the 2D or 3D scene<br>
                         </span>
                         <img src="assets/examples/editor_section.png" alt="" width="100%" height="100%"><br><br>
@@ -255,6 +260,11 @@
                             All your assets go in the folder with the same name. If it doesn't already exist, using some of the editor's functions will create it, but if necessary you can create it yourself. You can do the same with the folders inside.<br>
                         </span>
                         <img src="assets/examples/assets.png" alt="" width="50%" height="50%"><br><br>
+
+                        <span class="mark">
+                            In the assets menu you can insert images, videos, and audio files etc. also you may notice that in videos you need to use .ogv theora for it to work, also for audio files you need to insert only .ogg or .mp3 files, wav is not allowed<br>
+                        </span>
+                        <img src="assets/examples/assets_menu.png" alt="" width="100%" height="100%"><br><br>
                     </p>
 
                     <h2 data-i18n="where_your_characters_go_title" id="where-your-characters-go">Where your characters go?</h2>
@@ -275,7 +285,8 @@
                             - GlobalSound<br>
                             - CharacterScript<br>
                             - CharacterList<br>
-                            - Scene-specific functions (See using functions on the scene)<br>
+                            - Scene-specific functions (See How to use functions in the scene for more information)<br>
+                            - BBcode<br>
 
                             Each of these tags can execute different functions within the same editor.<br>
 
@@ -301,6 +312,7 @@
                                 <span class="c-keyword">Load_VOICE</span>(VoiceName :<span class="c-string">String</span>) -> also same goes for voices one details is this only can play custom voices of your current roster<br><br>
                                 <span class="c-keyword">Stop_SFX</span>() -> if an sfx is playing it will stop it<br><br>
                                 <span class="c-keyword">Stop_MUSIC</span>() -> same goes for music<br><br>
+                                <span class="c-keyword">Stop_FadeOut_MUSIC</span>() -> It will cause the music to fade out over a duration of 0.7 seconds.<br><br>
                                 <span class="c-keyword">Stop_VOICE</span>() -> same goes for voices<br><br>
                                 <span class="c-keyword">Pitch_Voice</span>(Pitch : <span class="c-class">Float</span> = <span class="c-number">1.0</span>) -> If there is a voice playing right now, this function will change its pitch, this indirectly also changes its speed due to the pitch<br><br>
                             </code>
@@ -313,7 +325,7 @@
                         <span class="mark">
                             CharacterScript is one of the most important autoloads in the engine. It is responsible for handling all visual novel elements, screen effects, backgrounds, transitions, and character animations on the 2D stage.<br><br>
                             
-                            <span class="warning">WARNING: The use of these methods should be limited to the 2D scene; using them in other scenes, including 3D, will certainly cause a crash.</span><br><br>
+                            <span class="warning">WARNING: The use of these methods should be limited to the 2D scene; using them in other scenes, including 3D, will certainly cause some errors.</span><br><br>
                             <code class="inline-code">
                                 <span class="c-keyword">do</span> 
                                 <span class="c-class">CharacterScript</span>.<span class="c-method">Method</span>(<span class="c-string">"Parameter"</span>)
@@ -359,6 +371,14 @@
                                 <span class="c-keyword">Show_3D_Court</span>() -> Displays the 3D trial background environment.<br><br>
 
                                 <span class="c-keyword">Hide_3D_Court</span>() -> Hides the 3D trial background and returns to the 2D background.<br><br>
+
+                                <span class="c-keyword">Obtain_Evidence</span>(Truth_Bullet : <span class="c-string">String</span>) -> It will display an animation of obtaining evidence with the image of the truth bullet selected. (its sticky so it won't dissapear after the animation)<br><br>
+
+                                <span class="c-keyword">Remove_Evidence</span>() -> It will make an animation for removing the Obtained Evidence animation.<br><br>
+                            
+                                <span class="c-keyword">Enable_Orange</span>() -> It will make the orange filtrer from Memory visible<br><br>
+
+                                <span class="c-keyword">Disable_Orange</span>() -> It will hide the orange filtrer<br><br>
                             </code>
                             <br><br>
                         </span>
@@ -369,7 +389,7 @@
                        <span class="mark">
             CharacterList is the core autoload managing the 3D court environment and character interactions within it.<br><br>
 
-            <span class="warning">WARNING: The use of these methods should be limited to the 3D scene; using them in other scenes, including 2D, will certainly cause a crash.</span><br><br>
+            <span class="warning">WARNING: The use of these methods should be limited to the 3D scene; using them in other scenes, including 2D, will certainly cause some errors.</span><br><br>
 
                 <code class="inline-code">
                     <span class="c-keyword">do</span> 
@@ -383,9 +403,9 @@
 
                     <span class="c-keyword">focus_CH</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.2</span>) -> The camera will perform a simple linear movement to focus on a character with the specified FOV and speed.<br><br>
 
-                    <span class="c-keyword">focus_CH_zoom_in_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>) -> The camera will start at the specified angle and smoothly rotate back to its original position while zooming in.<br><br>
+                    <span class="c-keyword">focus_CH_zoom_in_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.0</span>) -> The camera will start at the specified angle and smoothly rotate back to its original position while zooming in.<br><br>
 
-                    <span class="c-keyword">focus_CH_zoom_out_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, ... ) -> Same as above, but zooming out.<br><br>
+                    <span class="c-keyword">focus_CH_zoom_out_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.0</span>) -> Same as above, but zooming out.<br><br>
 
                     <span class="c-keyword">focus_CH_zoom_in</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>) -> Standard zoom in animation towards the character.<br><br>
                     
@@ -406,9 +426,97 @@
                     <span class="c-keyword">Play_I_See</span>() -> Prepares and plays the "I See" (cut-in) animation sequence.<br><br>
 
                     <span class="c-keyword">present_evidence</span>(CorrectAnswer : <span class="c-string">String</span>) -> Opens the truth bullet menu to present evidence. <i style="color: #ffcc00;">Note: It is strongly recommended NOT to use this function manually. It requires formulating the question with specific boolean values and structure that is currently only manageable through the editor.</i><br><br>
+
+                    <span class="c-keyword">Show_Orange_filter</span>() -> Activates an orange filter overlay on the screen.<br><br>
+
+                    <span class="c-keyword">Hide_Orange_filter</span>() -> Deactivates the orange filter overlay.<br><br>
+
+                    <span class="c-keyword">fade_in</span>(Time : <span class="c-class">Float</span>) -> Performs a screen fade-in transition over the specified time in seconds.<br><br>
+
+                    <span class="c-keyword">fade_out</span>(Time : <span class="c-class">Float</span>) -> Performs a screen fade-out transition over the specified time in seconds.<br><br>
+
+                    <span class="c-keyword">Trial_Ended</span>() -> Ends the current trial.<br><br>
                 </code>
                 <br><br>
             </span>
+                    </p>
+
+                    <h2 data-i18n="scene_functions_title" id="scene-functions">Scene-Specific Functions</h2>
+                    <p data-i18n="scene_functions_text">
+                        <span class="mark">
+                            Aside from the Global Autoloads, you can directly call functions that belong exclusively to the current scene you are playing. Since these functions exist only in their respective environments, you must be careful not to call a 3D function while in a 2D scene, or it will cause an error.<br><br>
+
+                            To call them using the Dialogue Manager, you just write the name of the function directly using ' ! ' (See how to use functions in the scene for more information)<br>
+                            <code class="inline-code">
+                                <span class="c-keyword">! </span> <span class="c-method">Method</span>(<span class="c-string">"Parameter"</span>)
+                            </code>
+                            <br><br>
+
+                            <h3 style="color: #ffcc00;">2D Scene Functions</h3>
+                            The following functions can only be executed when you are in the visual novel (2D) environment:<br><br>
+
+                            <code class="inline-code">
+                                <span class="c-keyword">final_screen</span>() -> Ends the current visual novel segment and transitions to the next corresponding scene. (Note: This is automatically disabled during test mode to prevent closing the editor).<br><br>
+                            </code>
+                            <br>
+
+                            <h3 style="color: #ffcc00;">3D Custom Scene Functions</h3>
+                            The following functions are exclusive to the 3D Class Trial environment. They handle the minigames, health system, and trial progression:<br><br>
+
+                            <code class="inline-code">
+                                <span class="c-keyword">Health_Loss_effects</span>() -> Plays the damage sound effect and violently shakes the dialogue box.<br><br>
+
+                                <span class="c-keyword">Health_loss</span>(life : <span class="c-class">Int</span> = <span class="c-number">15</span>) -> Reduces the player's life bar by the specified amount (defaults to 15).<br><br>
+
+                                <span class="c-keyword">Health_Recovery</span>() -> Completely restores the player's life bar to 100%.<br><br>
+
+                                <span class="c-keyword">Start_Select_Someone</span>(id : <span class="c-class">Int</span>) -> Activates the "Choose Culprit" with an ID. This ID is the identifier of who you select initially (starts at 0, but as you advance from left to right, the counter increases or decreases and by the way the number can't be negative if is zero then change from the biggest one that exist in the characters that are in the trial).<br><br>
+
+                                <span class="c-keyword">Hide_Reticle</span>() -> Smoothly fades out the player's aiming reticle from the screen.<br><br>
+
+                                <span class="c-keyword">Trial_End</span>() -> Triggers the cinematic end of the trial. It zooms into the current character, fades out the music, plays the "All Rise" closing sequence, and loads the post-trial screen.<br><br>
+
+                                <span class="c-keyword">Main_menu</span>() -> Instantly exits the current trial, restores the mouse cursor, and returns the player to the Main Menu.<br><br>
+                            </code>
+                            <br><br>
+                        </span>
+                    </p>
+
+
+            <h2 data-i18n="bbcode_tags_title" id="bbcode-tags">BBCode Tags</h2>
+                    <p data-i18n="bbcode_tags_text">
+                        <span class="mark">
+                            BBCode tags are used directly inside the dialogue text to format words, add colors, text animations, and control the typing pacing. Unlike callable functions, these tags wrap around the text or are inserted directly into the sentence.<br><br>
+                            Also, keep in mind that you can look up how BBCode works in the official Godot documentation.<br><br>
+                            <code class="inline-code">
+                                <span class="c-keyword">[color=red]</span>This text is red!<span class="c-keyword">[/color]</span>
+                            </code>
+                            <br>
+                            The most common BBCode tags you can use in your dialogues are:<br><br>
+
+                            <code class="inline-code">
+                                <span class="c-keyword">[b]</span>text<span class="c-keyword">[/b]</span> -> Makes the text <b>Bold</b>.<br><br>
+                                
+                                <span class="c-keyword">[i]</span>text<span class="c-keyword">[/i]</span> -> Makes the text <i>Italic</i>.<br><br>
+                                
+                                <span class="c-keyword">[color=red]</span>text<span class="c-keyword">[/color]</span> -> Changes the text color. You can use names like "red", "yellow", or hex codes like "#ff0000". Perfect for highlighting important clues!<br><br>
+
+                                <span class="c-keyword">[center]</span>text<span class="c-keyword">[/center]</span> -> Centers the text inside the dialogue box.<br><br>
+                                
+                                <span class="c-keyword">[shake rate=20.0 level=5 connected=1]</span>text<span class="c-keyword">[/shake]</span> -> Applies a shaking animation to the text. Perfect for characters shouting or panicking.<br><br>
+                                
+                                <span class="c-keyword">[wave amp=50.0 freq=5.0 connected=1]</span>text<span class="c-keyword">[/wave]</span> -> Applies a wavy animation to the text.<br><br>
+
+                                <span class="c-keyword">[tornado radius=5.0 freq=2.0 connected=1]</span>text<span class="c-keyword">[/tornado]</span> -> Applies a chaotic tornado animation to the text.<br><br>
+                                
+                                <span class="c-keyword">[wait=1]</span> -> Pauses the dialogue typing for the specified amount of seconds (e.g., 1 second). You don't need to close this tag.<br><br>
+                                
+                                <span class="c-keyword">[speed=2]</span>text<span class="c-keyword">[/speed]</span> -> Multiplies the typing speed. For example, 2 makes it twice as fast, 0.5 makes it half as fast.<br><br>
+
+                                <span class="c-keyword">[next=auto]</span> -> Automatically advances to the next dialogue line when finished typing, without waiting for the player to click. You can use "auto" (calculates time based on text length) or a number like <span class="c-keyword">[next=2.5]</span> to wait exactly 2.5 seconds before skipping. You don't need to close this tag, just put it at the end of the sentence.<br><br>
+                            </code>
+                            <br><br>
+                        </span>
                     </p>
                 </section>
 
@@ -435,8 +543,9 @@
                             <br><br>
                             
                         </span>
-                        <img src="assets/examples/Expressions2d.png" alt="" width="50%" height="50%"><br><br>
+                        
                     </p>
+                        <img src="assets/examples/Expressions2d.png" alt="" width="50%" height="50%"><br><br>
 
                     <!-- 2D Scene Editor -->
                     <!-- === CHARACTER VOICES === -->
@@ -562,10 +671,23 @@
                         • <a href="#CharacterSounds" style="color: #ff9822; text-decoration: underline;">Character Sounds</a><br>
                         • <a href="#ChangeMusic" style="color: #ff9822; text-decoration: underline;">Change Song</a><br>
                         • <a href="#SetImage" style="color: #ff9822; text-decoration: underline;">Set Images</a><br>
-                        • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Set Videos</a><br>
+                        • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Set Videos</a><br><br>
+
+                        Also you may know that End chapter dialogue also works in the 3D but it only make a transition to the 2D scene and show the End Chapter Dialogue of the 2D scene and it doesn't make a visual divider like in the 2D editor.<br><br>
                         </span>
                     </p>
 
+                    <h2 id="Configuration" data-i18n="configMenu">Configuration Menu</h2>
+                    <p data-i18n="text_3d_config">
+                        <span class="mark">
+                            This menu takes you to a flow where you can insert dialogue completely separate from the main storyline; this relates to errors you might make during the trial and how they lead to its failure.<br><br>
+                            And yes! You can use every feature of the 3D editor, including inserting events.<br><br>
+                        </span>
+                        
+                    </p>
+                    <img src="assets/examples/Config.png" alt="" width="50%" height="50%"><br><br>
+
+                    <!-- === NON STOP DEBATES === -->
                     <h2 id="NonStopDebates" data-i18n="sub_shared_nsd" id="NonStopDebates">Non Stop Debates</h2>
                     <p data-i18n="text_3d_nsd">
                         <span class="mark">
@@ -587,7 +709,7 @@
                     <h2 id="ChooseAnswer" data-i18n="sub_shared_answer" id="ChooseAnswer">Choose Answer</h2>
                     <p data-i18n="text_3d_ca">
                         <span class="mark">
-                            Sometimes a question has multiple options. This block generates a multiple-choice menu on the screen (A, B, or C). You must write the text for the options and define which one is the correct path. Choosing the wrong answer will result in a health penalty.
+                            Sometimes a question has multiple options. This block generates a multiple-choice menu on the screen (A, B, or C). You must write the text for the options and define which one is the correct path. You can also press the dialogue button to take you to a new dialogue flow diferent from the main storyline and you can insert dialogues even use events and everything.
                         </span>
                         
                     </p>
@@ -607,7 +729,7 @@
                     <h1 data-i18n="custom_script_title" id="CustomScripting">What is a Custom Script</h1>
                     <p data-i18n="custom_script_text">
                         <span class="mark">
-                            <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
+                            <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause some errors</span><br>
 
                             In the custom script events section, there's what's called a 'custom block'. It's just a normal block, but the difference is that you don't add actions through the editor; you add them through code (see Event Terms for more information). For example, thanks to the use of CharacterScript or CharacterList, you can call each function separately and combine them to create a specific event. <br><br>
 
@@ -624,7 +746,7 @@
                     <h1 data-i18n="custom_script_usage_title" id="Usage">Usage</h1>
                         <p data-i18n="custom_script_usage_text">
                             <span class="mark">
-                                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
+                                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause some errors</span><br>
 
                                 Functions that don't use ! are simply executing 'do "MethodScript" ' CharacterScript for 2D Editor and CharacterList for 3D Editor, and to generate dialogue text, simply type your character's name followed by ' : ' and the text you want it to say (See Event Terms for information on callable functions).<br><br>
 
@@ -656,7 +778,7 @@
                     <h2 data-i18n="Character_Editor_title" id="CharacterOffset">What is the Character Editor?</h2>
                     <p data-i18n="Character_Editor_text">
                         <span class="mark">
-                            The Character Editor is a built-in visual tool that allows you to manage the cast of your Danganronpa trial. With this tool, you can explore the characters already included in the base game, add new custom sprites (expressions) to them, or create completely new original characters for your specific mod. It automatically handles the creation of the necessary folders (like the 'Voices' folder) and safely imports your images so they are ready to be used in the 2D and 3D scenes.<br><br>
+                            The Character Editor is a built-in visual tool that allows you to manage the cast of your Danganronpa trial. With this tool, you can explore the characters already included in the base game or create completely new original characters for your specific mod. It automatically handles the creation of the necessary folders (like the 'Voices' folder) and safely imports your images so they are ready to be used in the 2D and 3D scenes.<br><br>
                         </span>
                     </p>
 
@@ -672,7 +794,7 @@
                         </span>
                         
                     </p>
-                    <img src="assets/examples/Character offset editor.png" alt="Character Editor Interface" width="100%" height="100%"><br><br>
+                    <img src="assets/examples/Character offset editor_replacement.png" alt="Character Editor Interface" width="100%" height="100%"><br><br>
 
                     <h2 data-i18n="Character_Offset_title" id="2D_Usage">What is the 2D Character Offset Editor?</h2>
                     <p data-i18n="Character_Offset_text">
@@ -699,10 +821,22 @@
                             To use it, select a character from the dropdown. The editor will place them in a real 3D slot using their default 'idle' sprite. Adjust the <b>Scale</b> to make them fit the podium, and use <b>Pos X</b> and <b>Pos Y</b> to center them and plant their feet firmly. Once you hit <b>Save</b>, these values are added to the character's 'config.json' file alongside the 2D settings, ensuring they look perfect in both modes.<br><br>
                         </span>
 
-                        <img src="assets/examples/3dscene.png" alt="3D Character Offset Editor" width="100%" height="100%"><br><br>
+                        
                     </p>
+                        <img src="assets/examples/3dscene.png" alt="3D Character Offset Editor" width="100%" height="100%"><br><br>
                 
-                
+                    <h2 data-i18n="Counter_consent_isee" id="Counter_and_Consent">Special Sprites</h2>
+                    <p data-i18n="Special_Sprites_text">
+                        <span class="mark">
+                            In this section, you can prepare special sprites for the trial; if no sprites are prepared, nothing will appear when you use them. You can also assign audio to play when they are triggered. Please note that only the "Counter" and "I_see" sprites will be unlocked if the character you are editing is the main character.<br><br>
+                        </span>
+
+                        
+                    </p>
+                        <div style="display: flex;">
+                            <img src="assets/examples/Consent_Portrait.png" alt="consent" width="22%" height="30%"><br><br>
+                            <img src="assets/examples/Counter_isee.png" alt="counter" width="30%" height="30%"><br><br>
+                        </div>
                 </section>
 
 

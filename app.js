@@ -11,7 +11,7 @@ const langData = {
         sub_start_ed: "How Editors work",
         sub_start_assets: "Where your assets go",
         sub_start_chars: "Where your characters go",
-        sub_start_cc: "Counter and Consent",
+        sub_start_cc: "Special Sprites",
         nav_events: "Event terms",
         sub_ev_gs: "GlobalSound Events",
         sub_ev_cs: "CharacterScript Events",
@@ -41,6 +41,7 @@ const langData = {
         sub_shared_usage_2D: "2D offset editor usage",
         sub_shared_usage_3D: "3D offset editor usage",
         sub_custom_avoid: "What you should avoid",
+        sub_shared_config: "Configuration Menu",
         nav_offset: "Character Editor",
         sub_offset_what: "What is Character Editor?",
         nav_scene: "Using functions on the scene",
@@ -139,6 +140,7 @@ const langData = {
             - Intro -> This is simply the 2D editor for character dialogue<br>
             - Trial -> This is simply the 3D editor for controlling gameplay and dialogue<br>
             - Settings -> Return to the section to configure the title and description<br>
+            - Assets -> This is where you configure the assets present<br>
             - Test -> This is for testing your creation in either the 2D or 3D scene<br>
         </span>
         <img src="assets/examples/editor_section.png" alt="" width="100%" height="100%"><br><br>
@@ -149,6 +151,11 @@ const langData = {
             All your assets go in the folder with the same name. If it doesn't already exist, using some of the editor's functions will create it, but if necessary you can create it yourself. You can do the same with the folders inside.<br>
         </span>
         <img src="assets/examples/assets.png" alt="" width="50%" height="50%"><br><br>
+
+        <span class="mark">
+                            In the assets menu you can insert images, videos, and audio files etc. also you may notice that in videos you need to use .ogv theora for it to work, also for audio files you need to insert only .ogg or .mp3 files, wav is not allowed<br>
+                        </span>
+                        <img src="assets/examples/assets_menu.png" alt="" width="100%" height="100%"><br><br>
         `,
         where_your_characters_go_title: "Where your characters go?",
         where_your_characters_go_text: `
@@ -165,11 +172,47 @@ const langData = {
             - GlobalSound<br>
             - CharacterScript<br>
             - CharacterList<br>
-            - Scene-specific functions (See using functions on the scene)<br>
+            - Scene-specific functions (See How to use functions in the scene for more information)<br>
+            - BBcode 
 
             Each of these tags can execute different functions within the same editor.<br>
 
             Fun fact: The GlobalSound tag is used throughout the game, both in the menu and the editor, to display any type of sound.<br><br>
+        </span>
+        `,
+        bbcode_tags_title: "BBCode Tags",
+        bbcode_tags_text: `
+        <span class="mark">
+            BBCode tags are used directly inside the dialogue text to format words, add colors, text animations, and control the typing pacing. Unlike callable functions, these tags wrap around the text or are inserted directly into the sentence.<br><br>
+            Also, keep in mind that you can look up how BBCode works in the official Godot documentation.<br><br>
+            <code class="inline-code">
+                <span class="c-keyword">[color=red]</span>This text is red!<span class="c-keyword">[/color]</span>
+            </code>
+            <br>
+            The most common BBCode tags you can use in your dialogues are:<br><br>
+
+            <code class="inline-code">
+                <span class="c-keyword">[b]</span>text<span class="c-keyword">[/b]</span> -> Makes the text <b>Bold</b>.<br><br>
+                
+                <span class="c-keyword">[i]</span>text<span class="c-keyword">[/i]</span> -> Makes the text <i>Italic</i>.<br><br>
+                
+                <span class="c-keyword">[color=red]</span>text<span class="c-keyword">[/color]</span> -> Changes the text color. You can use names like "red", "yellow", or hex codes like "#ff0000". Perfect for highlighting important clues!<br><br>
+
+                <span class="c-keyword">[center]</span>text<span class="c-keyword">[/center]</span> -> Centers the text inside the dialogue box.<br><br>
+                
+                <span class="c-keyword">[shake rate=20.0 level=5 connected=1]</span>text<span class="c-keyword">[/shake]</span> -> Applies a shaking animation to the text. Perfect for characters shouting or panicking.<br><br>
+                
+                <span class="c-keyword">[wave amp=50.0 freq=5.0 connected=1]</span>text<span class="c-keyword">[/wave]</span> -> Applies a wavy animation to the text.<br><br>
+
+                <span class="c-keyword">[tornado radius=5.0 freq=2.0 connected=1]</span>text<span class="c-keyword">[/tornado]</span> -> Applies a chaotic tornado animation to the text.<br><br>
+                
+                <span class="c-keyword">[wait=1]</span> -> Pauses the dialogue typing for the specified amount of seconds (e.g., 1 second). You don't need to close this tag.<br><br>
+                
+                <span class="c-keyword">[speed=2]</span>text<span class="c-keyword">[/speed]</span> -> Multiplies the typing speed. For example, 2 makes it twice as fast, 0.5 makes it half as fast.<br><br>
+
+                <span class="c-keyword">[next=auto]</span> -> Automatically advances to the next dialogue line when finished typing, without waiting for the player to click. You can use "auto" (calculates time based on text length) or a number like <span class="c-keyword">[next=2.5]</span> to wait exactly 2.5 seconds before skipping. You don't need to close this tag, just put it at the end of the sentence.<br><br>
+            </code>
+            <br><br>
         </span>
         `,
         globalsound_events_title: "GlobalSound Events",
@@ -190,6 +233,7 @@ const langData = {
                 <span class="c-keyword">Load_VOICE</span>(VoiceName :<span class="c-string">String</span>) -> also same goes for voices one details is this only can play custom voices of your current roster<br><br>
                 <span class="c-keyword">Stop_SFX</span>() -> if an sfx is playing it will stop it<br><br>
                 <span class="c-keyword">Stop_MUSIC</span>() -> same goes for music<br><br>
+                <span class="c-keyword">Stop_FadeOut_MUSIC</span>() -> It will cause the music to fade out over a duration of 0.7 seconds.<br><br>
                 <span class="c-keyword">Stop_VOICE</span>() -> same goes for voices<br><br>
                 <span class="c-keyword">Pitch_Voice</span>(Pitch : <span class="c-class">Float</span> = <span class="c-number">1.0</span>) -> If there is a voice playing right now, this function will change its pitch, this indirectly also changes its speed due to the pitch<br><br>
             </code>
@@ -206,7 +250,7 @@ const langData = {
                 <span class="c-class">CharacterScript</span>.<span class="c-method">Method</span>(<span class="c-string">"Parameter"</span>)
             </code>
             <br>
-            <span class="warning">WARNING: The use of these methods should be limited to the 2D scene; using them in other scenes, including 3D, will certainly cause a crash.</span><br><br>
+            <span class="warning">WARNING: The use of these methods should be limited to the 2D scene; using them in other scenes, including 3D, will certainly cause some errors.</span><br><br>
             The repertoire of events that CharacterScript can use are as follows:<br><br>
 
             <code class="inline-code">
@@ -229,6 +273,14 @@ const langData = {
                 <span class="c-keyword">Memory</span>(MemoryID : <span class="c-class">Int</span>) -> Calls and plays a specific Memory block by its ID.<br><br>
                 <span class="c-keyword">Show_3D_Court</span>() -> Displays the 3D trial background environment.<br><br>
                 <span class="c-keyword">Hide_3D_Court</span>() -> Hides the 3D trial background and returns to the 2D background.<br><br>
+            
+                <span class="c-keyword">Obtain_Evidence</span>(Truth_Bullet : <span class="c-string">String</span>) -> It will display an animation of obtaining evidence with the image of the truth bullet selected. (its sticky so it won't dissapear after the animation)<br><br>
+
+                                <span class="c-keyword">Remove_Evidence</span>() -> It will make an animation for removing the Obtained Evidence animation.<br><br>
+                            
+                                <span class="c-keyword">Enable_Orange</span>() -> It will make the orange filtrer from Memory visible<br><br>
+
+                                <span class="c-keyword">Disable_Orange</span>() -> It will hide the orange filtrer<br><br>
             </code>
             <br><br>
         </span>
@@ -238,7 +290,7 @@ const langData = {
         <span class="mark">
             CharacterList is the core autoload managing the 3D court environment and character interactions within it.<br><br>
 
-            <span class="warning">WARNING: The use of these methods should be limited to the 3D scene; using them in other scenes, including 2D, will certainly cause a crash.</span><br><br>
+            <span class="warning">WARNING: The use of these methods should be limited to the 3D scene; using them in other scenes, including 2D, will certainly cause some errors.</span><br><br>
 
                 <code class="inline-code">
                     <span class="c-keyword">do</span> 
@@ -252,9 +304,9 @@ const langData = {
 
                     <span class="c-keyword">focus_CH</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.2</span>) -> The camera will perform a simple linear movement to focus on a character with the specified FOV and speed.<br><br>
 
-                    <span class="c-keyword">focus_CH_zoom_in_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>) -> The camera will start at the specified angle and smoothly rotate back to its original position while zooming in.<br><br>
+                    <span class="c-keyword">focus_CH_zoom_in_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.0</span>) -> The camera will start at the specified angle and smoothly rotate back to its original position while zooming in.<br><br>
 
-                    <span class="c-keyword">focus_CH_zoom_out_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, ... ) -> Same as above, but zooming out.<br><br>
+                    <span class="c-keyword">focus_CH_zoom_out_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.0</span>) -> Same as above, but zooming out.<br><br>
 
                     <span class="c-keyword">focus_CH_zoom_in</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>) -> Standard zoom in animation towards the character.<br><br>
                     
@@ -275,6 +327,16 @@ const langData = {
                     <span class="c-keyword">Play_I_See</span>() -> Prepares and plays the "I See" (cut-in) animation sequence.<br><br>
 
                     <span class="c-keyword">present_evidence</span>(CorrectAnswer : <span class="c-string">String</span>) -> Opens the truth bullet menu to present evidence. <i style="color: #ffcc00;">Note: It is strongly recommended NOT to use this function manually. It requires formulating the question with specific boolean values and structure that is currently only manageable through the editor.</i><br><br>
+
+                    <span class="c-keyword">Show_Orange_filter</span>() -> Activates an orange filter overlay on the screen.<br><br>
+
+                    <span class="c-keyword">Hide_Orange_filter</span>() -> Deactivates the orange filter overlay.<br><br>
+
+                    <span class="c-keyword">fade_in</span>(Time : <span class="c-class">Float</span>) -> Performs a screen fade-in transition over the specified time in seconds.<br><br>
+
+                    <span class="c-keyword">fade_out</span>(Time : <span class="c-class">Float</span>) -> Performs a screen fade-out transition over the specified time in seconds.<br><br>
+
+                    <span class="c-keyword">Trial_Ended</span>() -> Ends the current trial.<br><br>
                 </code>
                 <br><br>
             </span>
@@ -347,7 +409,7 @@ const langData = {
         custom_script_title: "What is a Custom Script",
         custom_script_text: `
             <span class="mark">
-                            <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
+                            <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause some errors.</span><br>
 
                             In the custom script events section, there's what's called a 'custom block'. It's just a normal block, but the difference is that you don't add actions through the editor; you add them through code (see Event Terms for more information). For example, thanks to the use of CharacterScript or CharacterList, you can call each function separately and combine them to create a specific event. <br><br>
 
@@ -362,7 +424,7 @@ const langData = {
         custom_script_usage_title: "Usage",
         custom_script_usage_text: `
             <span class="mark">
-                                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause a crash.</span><br>
+                                <span class="warning">WARNING: You must be careful when using these events; they are case-sensitive, and any typo will certainly cause some errors</span><br>
 
                                 Functions that don't use ! are simply executing 'do "MethodScript" ' CharacterScript for 2D Editor and CharacterList for 3D Editor, and to generate dialogue text, simply type your character's name followed by ' : ' and the text you want it to say (See Event Terms for information on callable functions).<br><br>
 
@@ -373,7 +435,7 @@ const langData = {
         Character_Editor_title: "What is the Character Editor?",
         Character_Editor_text: `
             <span class="mark">
-                The Character Editor is a built-in visual tool that allows you to manage the cast of your Danganronpa trial. With this tool, you can explore the characters already included in the base game, add new custom sprites (expressions) to them, or create completely new original characters for your specific mod. It automatically handles the creation of the necessary folders (like the 'Voices' folder) and safely imports your images so they are ready to be used in the 2D and 3D scenes.<br><br>
+                The Character Editor is a built-in visual tool that allows you to manage the cast of your Danganronpa trial. With this tool, you can explore the characters already included in the base game or create completely new original characters for your specific mod. It automatically handles the creation of the necessary folders (like the 'Voices' folder) and safely imports your images so they are ready to be used in the 2D and 3D scenes.<br><br>
             </span>
         `,
         Character_Editor_usage_title: "Usage",
@@ -417,6 +479,18 @@ const langData = {
         `,
         Scene2D_title: "2D Scene",
         CH_Expressions_title: "Character Expressions",
+        CH_Expressions_text: 
+        `
+        <span class="mark">
+                            In the 2D editor, the trick is that there aren't actually multiple characters; it's just one character whose sprite or expression changes during dialogue. This is a real performance boost. The expressions configured in the Character Offset Editor (see the Character Editor section) will appear in the Expressions section.<br><br>
+
+                            An animation can be added to each expression. By default, it will have the animation of a residual image from the previous expression that disappears. If you need something instantaneous, you can check the Instant option.<br><br>
+
+                            There are two important animations: Left_Slide and Right_Slide. The purpose of these animations is to make it appear as if the character is coming from one side when you switch characters. It's highly recommended to use these every time you switch dialogue to another character.
+                            <br><br>
+                            
+                        </span>
+        `,
         functions_scene_title: "how to use functions in the scene",
         functions_scene_text:
         `
@@ -471,7 +545,10 @@ const langData = {
                 • <a href="#CharacterSounds" style="color: #ff9822; text-decoration: underline;">Character Sounds</a><br>
                 • <a href="#ChangeMusic" style="color: #ff9822; text-decoration: underline;">Change Song</a><br>
                 • <a href="#SetImage" style="color: #ff9822; text-decoration: underline;">Set Images</a><br>
-                • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Set Videos</a><br>
+                • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Set Videos</a><br><br>
+
+                Also you may know that End chapter dialogue also works in the 3D but it only make a transition to the 2D scene and show the End Chapter Dialogue of the 2D scene and it doesn't make a visual divider like in the 2D editor.<br><br>
+
             </span>
         `,
         text_3d_nsd: `
@@ -486,13 +563,69 @@ const langData = {
         `,
         text_3d_ca: `
             <span class="mark">
-                Sometimes a question has multiple options. This block generates a multiple-choice menu on the screen (A, B, or C). You must write the text for the options and define which one is the correct path. Choosing the wrong answer will result in a health penalty.
+                Sometimes a question has multiple options. This block generates a multiple-choice menu on the screen (A, B, or C). You must write the text for the options and define which one is the correct path. You can also press the dialogue button to take you to a new dialogue flow diferent from the main storyline and you can insert dialogues even use events and everything.
             </span>
         `,
         text_3d_ce: `
             <span class="mark">
                 This block opens the player's Truth Bullet menu, demanding they present a specific piece of evidence to back up a claim. You configure this by simply selecting the specific bullet that counts as the right answer. Presenting the wrong evidence will penalize the player's health.
             </span>
+        `,
+        text_3d_config:
+        `
+                        <span class="mark">
+                            This menu takes you to a flow where you can insert dialogue completely separate from the main storyline; this relates to errors you might make during the trial and how they lead to its failure.<br><br>
+                            And yes! You can use every feature of the 3D editor, including inserting events.<br><br>
+                        </span>
+        `,
+        sub_ev_sc: "Scene Functions",
+        scene_functions_title: "Scene-Specific Functions",
+        scene_functions_text: `
+        <span class="mark">
+            Aside from the Global Autoloads, you can directly call functions that belong exclusively to the current scene you are playing. Since these functions exist only in their respective environments, you must be careful not to call a 3D function while in a 2D scene, or it will cause an error.<br><br>
+
+            To call them using the Dialogue Manager, you just write the name of the function directly using ' ! ' (See how to use functions in the scene for more information)<br>
+            <code class="inline-code">
+                <span class="c-keyword">! </span> <span class="c-method">Method</span>(<span class="c-string">"Parameter"</span>)
+            </code>
+            <br><br>
+
+            <h3 style="color: #ffcc00;">2D Scene Functions</h3>
+            The following functions can only be executed when you are in the visual novel (2D) environment:<br><br>
+
+            <code class="inline-code">
+                <span class="c-keyword">final_screen</span>() -> Ends the current visual novel segment and transitions to the next corresponding scene. (Note: This is automatically disabled during test mode to prevent closing the editor).<br><br>
+            </code>
+            <br>
+
+            <h3 style="color: #ffcc00;">3D Custom Scene Functions</h3>
+            The following functions are exclusive to the 3D Class Trial environment. They handle the minigames, health system, and trial progression:<br><br>
+
+            <code class="inline-code">
+                <span class="c-keyword">Health_Loss_effects</span>() -> Plays the damage sound effect and violently shakes the dialogue box.<br><br>
+
+                <span class="c-keyword">Health_loss</span>(life : <span class="c-class">Int</span> = <span class="c-number">15</span>) -> Reduces the player's life bar by the specified amount (defaults to 15).<br><br>
+
+                <span class="c-keyword">Health_Recovery</span>() -> Completely restores the player's life bar to 100%.<br><br>
+
+                <span class="c-keyword">Start_Select_Someone</span>(id : <span class="c-class">Int</span>) -> Activates the "Choose Culprit" with an ID. This ID is the identifier of who you select initially (starts at 0, but as you advance from left to right, the counter increases or decreases and by the way the number can't be negative if is zero then change from the biggest one that exist in the characters that are in the trial).<br><br>
+
+                <span class="c-keyword">Hide_Reticle</span>() -> Smoothly fades out the player's aiming reticle from the screen.<br><br>
+
+                <span class="c-keyword">Trial_End</span>() -> Triggers the cinematic end of the trial. It zooms into the current character, fades out the music, plays the "All Rise" closing sequence, and loads the post-trial screen.<br><br>
+
+                <span class="c-keyword">Main_menu</span>() -> Instantly exits the current trial, restores the mouse cursor, and returns the player to the Main Menu.<br><br>
+            </code>
+            <br><br>
+        </span>
+        `,
+        sub_ev_bb: "BBcode Tags",
+        Counter_consent_isee: "Special Sprites",
+        Special_Sprites_text: 
+        `
+        <span class="mark">
+                            In this section, you can prepare special sprites for the trial; if no sprites are prepared, nothing will appear when you use them. You can also assign audio to play when they are triggered. Please note that only the "Counter" and "I_see" sprites will be unlocked if the character you are editing is the main character.<br><br>
+                        </span>
         `,
     },
     es: {
@@ -507,7 +640,7 @@ const langData = {
         sub_start_ed: "Como funcionan los editores",
         sub_start_assets: "Donde van tus recursos",
         sub_start_chars: "Donde van tus personajes",
-        sub_start_cc: "Contraataque y Consentimiento",
+        sub_start_cc: "Sprites Especiales",
         nav_events: "Terminos de eventos",
         sub_ev_gs: "Eventos GlobalSound",
         sub_ev_cs: "Eventos CharacterScript",
@@ -523,6 +656,7 @@ const langData = {
         sub_shared_bg: "Cambiar Fondo",
         sub_shared_song: "Cambiar Cancion",
         sub_shared_intro: "Escena 3D",
+        sub_shared_config: "Menu de Configuracion",
         sub_shared_nsd: "Non Stop Debates",
         sub_shared_culprit: "Escojer Culpable",
         sub_shared_answer: "Escojer Respuesta",
@@ -636,6 +770,7 @@ const langData = {
             - Intro -> Este es simplemente el editor 2D para el dialogo de personajes<br>
             - Trial -> Este es simplemente el editor 3D para controlar el juego y el dialogo<br>
             - Settings -> Regresa a la seccion para configurar el titulo y la descripcion<br>
+            - Assets -> Aqui es donde configuras los assets usados en el juego<br>
             - Test -> Esto es para probar tu creacion en la escena 2D o 3D<br>
         </span>
         <img src="assets/examples/editor_section.png" alt="" width="100%" height="100%"><br><br>
@@ -646,6 +781,11 @@ const langData = {
             Todos tus assets van en la carpeta con el mismo nombre si aun no esta creada con usar algunas de las funciones del editor la creara, pero si es necesario puedes crearla por ti mismo, lo mismo puedes hacer con las carpetas de adentro.<br>
         </span>
         <img src="assets/examples/assets.png" alt="" width="50%" height="50%"><br><br>
+
+        <span class="mark">
+            En la carpeta Assets se encuentran todos tus assets, incluyendo imagenes, sonidos, videos y otros recursos, ademas tambien hay que notar que para archivos de videos solo puedes usar .ogv theora para que funcione, y en los archivos de audio solo puedes usar .ogg o .mp3, wav no esta permitido<br>
+        </span>
+        <img src="assets/examples/assets_menu.png" alt="" width="100%" height="100%"><br><br>
         `,
         where_your_characters_go_title: "Donde van tus personajes?",
         where_your_characters_go_text: `
@@ -662,11 +802,47 @@ const langData = {
         - GlobalSound<br>
         - CharacterScript<br>
         - CharacterList<br>
-        - Funciones especificas de la escena (Ver usar funciones en la escena)<br>
+        - Funciones especificas de la escena (Ver How to use functions in the scene for more information)<br>
+        - BBCode<br>
 
         Cada una de estas etiquetas puede ejecutar diferentes funciones dentro del mismo editor.<br>
 
         Dato curioso: La etiqueta GlobalSound se usa en todo el juego, tanto en el menu como en el editor, para mostrar cualquier tipo de sonido.<br><br>
+        </span>
+        `,
+        bbcode_tags_title: "Etiquetas BBCode",
+        bbcode_tags_text: `
+        <span class="mark">
+            Las etiquetas BBCode se usan directamente dentro del texto del dialogo para dar formato a las palabras, agregar colores, animaciones de texto y controlar el ritmo de escritura. A diferencia de las funciones invocables, estas etiquetas envuelven el texto o se insertan directamente en la oracion.<br><br>
+            Ademas tengan en cuenta que el funcionamiento de las etiquetas pueden investigarlas con mas profundidad en la documentacion oficial de godot.<br><br>
+            <code class="inline-code">
+                <span class="c-keyword">[color=red]</span>¡Este texto es rojo!<span class="c-keyword">[/color]</span>
+            </code>
+            <br>
+            Las etiquetas BBCode mas comunes que puedes usar en tus dialogos son:<br><br>
+
+            <code class="inline-code">
+                <span class="c-keyword">[b]</span>texto<span class="c-keyword">[/b]</span> -> Pone el texto en Negrita.<br><br>
+                
+                <span class="c-keyword">[i]</span>texto<span class="c-keyword">[/i]</span> -> Pone el texto en Cursiva.<br><br>
+                
+                <span class="c-keyword">[color=red]</span>texto<span class="c-keyword">[/color]</span> -> Cambia el color del texto. Puedes usar nombres como "red", "yellow" o codigos hexadecimales como "#ff0000". ¡Perfecto para resaltar pistas importantes!<br><br>
+
+                <span class="c-keyword">[center]</span>texto<span class="c-keyword">[/center]</span> -> Centra el texto dentro de la caja de dialogo.<br><br>
+                
+                <span class="c-keyword">[shake rate=20.0 level=5 connected=1]</span>texto<span class="c-keyword">[/shake]</span> -> Aplica una animacion de temblor al texto. Perfecto para personajes gritando o en panico.<br><br>
+                
+                <span class="c-keyword">[wave amp=50.0 freq=5.0 connected=1]</span>texto<span class="c-keyword">[/wave]</span> -> Aplica una animacion de ondas al texto.<br><br>
+
+                <span class="c-keyword">[tornado radius=5.0 freq=2.0 connected=1]</span>texto<span class="c-keyword">[/tornado]</span> -> Aplica una animacion caotica de tornado al texto.<br><br>
+                
+                <span class="c-keyword">[wait=1]</span> -> Pausa la escritura del dialogo por la cantidad de segundos especificada (ej. 1 segundo). No necesitas cerrar esta etiqueta.<br><br>
+                
+                <span class="c-keyword">[speed=2]</span>texto<span class="c-keyword">[/speed]</span> -> Multiplica la velocidad de escritura. Por ejemplo, 2 lo hace el doble de rapido, 0.5 lo hace a la mitad de velocidad.<br><br>
+
+                <span class="c-keyword">[next=auto]</span> -> Avanza automaticamente a la siguiente linea de dialogo al terminar de escribir, sin esperar a que el jugador haga clic. Puedes usar "auto" (calcula el tiempo basado en la longitud del texto) o un numero como <span class="c-keyword">[next=2.5]</span> para esperar exactamente 2.5 segundos antes de avanzar. No necesitas cerrar esta etiqueta, solo ponla al final de la oracion.<br><br>
+            </code>
+            <br><br>
         </span>
         `,
         globalsound_events_title: "Eventos de GlobalSound",
@@ -687,6 +863,7 @@ const langData = {
             <span class="c-keyword">Load_VOICE</span>(VoiceName :<span class="c-string">String</span>) -> tambien aplica para las voces. Un detalle importante es que solo puede reproducir voces personalizadas de tu lista actual<br><br>
             <span class="c-keyword">Stop_SFX</span>() -> si se esta reproduciendo un efecto de sonido, lo detendra<br><br>
             <span class="c-keyword">Stop_MUSIC</span>() -> lo mismo aplica para la musica<br><br>
+            <span class="c-keyword">Stop_FadeOut_MUSIC</span>() -> Causara un desvanecimiento de la musica, lo que se desvanecera durante una duración de 0.7 segundos.<br><br>
             <span class="c-keyword">Stop_VOICE</span>() -> lo mismo aplica para las voces<br><br>
             <span class="c-keyword">Pitch_Voice</span>(Pitch : <span class="c-class">Float</span> = <span class="c-number">1.0</span>) -> Si hay una voz reproduciendose en este momento, esta funcion cambiara su tono, lo que indirectamente tambien cambia su velocidad debido al tono.<br><br>
             </code>
@@ -703,7 +880,7 @@ const langData = {
                 <span class="c-class">CharacterScript</span>.<span class="c-method">Method</span>(<span class="c-string">"Parametro"</span>)
             </code>
             <br>
-            <span class="warning">ADVERTENCIA: el uso de estos metodos debe ser unicamente en la escena 2D el uso de esto en otras escenas incluyendo la 3D ciertamente va a causar un crash.</span><br><br>
+            <span class="warning">ADVERTENCIA: el uso de estos metodos debe ser unicamente en la escena 2D el uso de esto en otras escenas incluyendo la 3D ciertamente va a causar errores.</span><br><br>
             El repertorio de eventos que CharacterScript puede utilizar es el siguiente:<br><br>
 
             <code class="inline-code">
@@ -726,16 +903,25 @@ const langData = {
                 <span class="c-keyword">Memory</span>(MemoryID : <span class="c-class">Int</span>) -> Llama y reproduce un bloque de Memoria específico mediante su ID.<br><br>
                 <span class="c-keyword">Show_3D_Court</span>() -> Muestra el entorno 3D del tribunal de fondo.<br><br>
                 <span class="c-keyword">Hide_3D_Court</span>() -> Oculta el tribunal 3D y regresa al fondo 2D.<br><br>
-            </code>
+            
+                <span class="c-keyword">Obtain_Evidence</span>(Truth_Bullet : <span class="c-string">String</span>) -> Va a mostrar una animacion de bala obtenida con la imagen de la bala de la verdad seleccionada (Ademas cuando se reproduce la animacion no va a desaparecer cuando termine la animacion)<br><br>
+
+                                <span class="c-keyword">Remove_Evidence</span>() -> Va a crear una animacion para eliminar la animacion de evidencia obtenida.<br><br>
+                            
+                                <span class="c-keyword">Enable_Orange</span>() -> Va a hacer visible el filtro naranja de la Memoria<br><br>
+
+                                <span class="c-keyword">Disable_Orange</span>() -> Va a ocultar el filtro naranja<br><br>
+            
+                </code>
             <br><br>
         </span>
         `,
-        characterlist_events_title: "Eventos CharacterList",
+        characterlist_events_title: "Evento CharacterList",
         characterlist_events_text: `
         <span class="mark">
             CharacterList es el autoload principal encargado de gestionar el entorno 3D del tribunal y las interacciones de los personajes dentro del mismo.<br><br>
 
-            <span class="warning">ADVERTENCIA: El uso de estos métodos debe limitarse a la escena 3D; usarlos en otras escenas, incluida la 2D, ciertamente causará un cierre inesperado (crash).</span><br><br>
+            <span class="warning">ADVERTENCIA: El uso de estos métodos debe limitarse a la escena 3D; usarlos en otras escenas, incluida la 2D, ciertamente causara errores.</span><br><br>
 
                 <code class="inline-code">
                     <span class="c-keyword">do</span> 
@@ -749,9 +935,9 @@ const langData = {
 
                     <span class="c-keyword">focus_CH</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.2</span>) -> La cámara hará un movimiento lineal simple hacia el personaje con el FOV y la velocidad configurados.<br><br>
 
-                    <span class="c-keyword">focus_CH_zoom_in_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>) -> La cámara iniciará en el ángulo (angle) indicado e irá volviendo suavemente a su posición original mientras se acerca (zoom in).<br><br>
+                    <span class="c-keyword">focus_CH_zoom_in_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.0</span>) -> La cámara iniciará en el ángulo (angle) indicado e irá volviendo suavemente a su posición original mientras se acerca (zoom in).<br><br>
 
-                    <span class="c-keyword">focus_CH_zoom_out_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, ... ) -> Igual que el anterior, pero alejándose (zoom out).<br><br>
+                    <span class="c-keyword">focus_CH_zoom_out_rotated</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Angle : <span class="c-class">Float</span> = <span class="c-number">-15.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>, Y_Rot : <span class="c-class">Float</span> = <span class="c-number">0</span>, Speed : <span class="c-class">Float</span> = <span class="c-number">0.0</span>) -> Igual que el anterior, pero alejándose (zoom out).<br><br>
 
                     <span class="c-keyword">focus_CH_zoom_in</span>(CharacterName : <span class="c-string">String</span>, FOV : <span class="c-class">Int</span> = <span class="c-number">50</span>, Duration : <span class="c-class">Float</span> = <span class="c-number">5.0</span>, Z_Pos : <span class="c-class">Float</span> = <span class="c-number">1.8</span>) -> Animación estándar de acercamiento (zoom in) hacia el personaje.<br><br>
                     
@@ -772,6 +958,16 @@ const langData = {
                     <span class="c-keyword">Play_I_See</span>() -> Prepara y reproduce la secuencia de animación de corte (cut-in) "I See".<br><br>
 
                     <span class="c-keyword">present_evidence</span>(CorrectAnswer : <span class="c-string">String</span>) -> Abre el menú de balas de la verdad para presentar evidencia. <i style="color: #ffcc00;">Nota: Se recomienda fuertemente NO usar esta función de forma manual. Requiere formular la pregunta con valores booleanos y una estructura que actualmente solo es manejable a través del editor.</i><br><br>
+
+                    <span class="c-keyword">Show_Orange_filter</span>() -> Activa un filtro naranja superpuesto en la pantalla.<br><br>
+
+                    <span class="c-keyword">Hide_Orange_filter</span>() -> Desactiva el filtro naranja superpuesto en la pantalla.<br><br>
+
+                    <span class="c-keyword">fade_in</span>(Time : <span class="c-class">Float</span>) -> Realiza un efecto de fundido de entrada (fade-in) en la pantalla durante el tiempo especificado en segundos.<br><br>
+
+                    <span class="c-keyword">fade_out</span>(Time : <span class="c-class">Float</span>) -> Realiza un efecto de fundido de salida (fade-out) en la pantalla durante el tiempo especificado en segundos.<br><br>
+
+                    <span class="c-keyword">Trial_Ended</span>() -> Finaliza el juicio actual.<br><br>
                 </code>
                 <br><br>
             </span>
@@ -844,7 +1040,7 @@ const langData = {
         custom_script_title: "¿Qué es un Script Personalizado?",
         custom_script_text: `
             <span class="mark">
-                <span class="warning">ADVERTENCIA: Debes tener cuidado al usar estos eventos; distinguen entre mayúsculas y minúsculas, y cualquier error tipográfico ciertamente causará un cierre inesperado (crash).</span><br>
+                <span class="warning">ADVERTENCIA: Debes tener cuidado al usar estos eventos; distinguen entre mayúsculas y minúsculas, y cualquier error tipográfico ciertamente causara algunos errores.</span><br>
 
                 En la sección de eventos de custom script (scripts personalizados), existe lo que se llama un 'bloque personalizado' (custom block). Es solo un bloque normal, pero la diferencia es que no añades las acciones a través del editor visual; las añades a través de código (consulta "Como usar funciones en la escena" para mas información). Por ejemplo, gracias al uso de CharacterScript, puedes llamar cada función por separado y combinarlas para crear un evento específico.<br><br>
 
@@ -859,7 +1055,7 @@ const langData = {
         custom_script_usage_title: "Uso",
         custom_script_usage_text: `
             <span class="mark">
-                <span class="warning">ADVERTENCIA: Debes tener cuidado al usar estos eventos; distinguen entre mayúsculas y minúsculas, y cualquier error tipográfico ciertamente causará un cierre inesperado (crash).</span><br>
+                <span class="warning">ADVERTENCIA: Debes tener cuidado al usar estos eventos; distinguen entre mayúsculas y minúsculas, y cualquier error tipográfico ciertamente causara algunos errores</span><br>
 
                 Las funciones que no usan ! simplemente estan ejecutando 'do MethodScript' en el editor 2D es 'CharacterScript' y en el 3D es 'CharacterList', y para generar el texto de diálogo, simplemente escribe el nombre de tu personaje seguido de ' : ' y el texto que quieres que diga (Consulta los Términos de Eventos para obtener información sobre las funciones llamables).<br><br>
             </span>
@@ -868,7 +1064,7 @@ const langData = {
         Character_Editor_title: "¿Qué es el Editor de Personajes?",
         Character_Editor_text: `
             <span class="mark">
-                El Editor de Personajes es una herramienta visual integrada que te permite gestionar el elenco de tu juicio de Danganronpa. Con esta herramienta, puedes explorar los personajes que ya vienen incluidos en el juego base, añadirles nuevos sprites (expresiones) personalizados, o crear personajes originales completamente nuevos para tu mod específico. Se encarga automáticamente de crear las carpetas necesarias (como la carpeta 'Voices') e importar tus imágenes de forma segura para que estén listas para usarse en las escenas 2D y 3D.<br><br>
+                El Editor de Personajes es una herramienta visual integrada que te permite gestionar el elenco de tu juicio de Danganronpa. Con esta herramienta, puedes explorar los personajes que ya vienen incluidos en el juego base o crear personajes originales completamente nuevos para tu mod específico. Se encarga automáticamente de crear las carpetas necesarias (como la carpeta 'Voices') e importar tus imágenes de forma segura para que estén listas para usarse en las escenas 2D y 3D.<br><br>
             </span>
         `,
         Character_Editor_usage_title: "Uso",
@@ -911,6 +1107,18 @@ const langData = {
         `,
         Scene2D_title: "Escena 2D",
         CH_Expressions_title: "Expresiones de Personajes",
+        CH_Expressions_text: 
+        `
+        <span class="mark">
+                            En el editor 2D, el truco reside en que no hay realmente varios personajes; se trata de un único personaje cuyo *sprite* o expresión cambia durante el diálogo. Esto supone una mejora significativa en el rendimiento. Las expresiones configuradas en el Editor de Desplazamiento del Personaje (consulta la sección del Editor de Personajes) aparecerán en la sección de Expresiones.<br><br>
+
+                            Se puede añadir una animación a cada expresión. Por defecto, se mostrará una animación de transición residual de la expresión anterior que se desvanece. Si necesitas un cambio instantáneo, puedes marcar la opción «Instant» (Instantáneo).<br><br>
+
+                            Existen dos animaciones importantes: *Left_Slide* (desplazamiento a la izquierda) y *Right_Slide* (desplazamiento a la derecha). El objetivo de estas animaciones es simular que el personaje entra desde un lateral al cambiar de personaje. Se recomienda encarecidamente utilizarlas siempre que se pase el turno de diálogo a otro personaje.
+                            <br><br>
+                            
+                        </span>
+        `,
         functions_scene_title: "Como usar funciones en la escena",
         functions_scene_text: 
         `
@@ -971,8 +1179,10 @@ const langData = {
                 • <a href="#CharacterSounds" style="color: #ff9822; text-decoration: underline;">Sonidos de Personajes</a><br>
                 • <a href="#ChangeMusic" style="color: #ff9822; text-decoration: underline;">Cambiar Canción</a><br>
                 • <a href="#SetImage" style="color: #ff9822; text-decoration: underline;">Asignar Imágenes</a><br>
-                • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Asignar Videos</a><br>
-            </span>
+                • <a href="#SetVideo" style="color: #ff9822; text-decoration: underline;">Asignar Videos</a><br><br>
+            
+                Ademas debes saber que el End Chapter Dialogue tambien funciona en el editor 3D pero a diferencia del editor 2D solo hace una transicion a la escena 2D y muestra el End Chapter dialogue correspondiente y no tiene una marca visual divisora como en el editor 2D.<br><br>
+                </span>
         `,
         text_3d_nsd: `
             <span class="mark">
@@ -986,7 +1196,7 @@ const langData = {
         `,
         text_3d_ca: `
             <span class="mark">
-                A veces una pregunta tiene múltiples opciones. Este bloque genera un menú de opciones múltiples en la pantalla (A, B o C). Debes escribir el texto de las opciones y definir cuál es el camino correcto. Elegir la respuesta equivocada resultará en una penalización de vida.
+                A veces una pregunta tiene múltiples opciones. Este bloque genera un menú de opciones múltiples en la pantalla (A, B o C). Debes escribir el texto de las opciones y definir cuál es el camino correcto. Elegir la respuesta equivocada resultará en una penalización de vida. Ademas puedes presionar el boton de dialogue para entrar en un flujo diferente del principal y puedes meter dialogos usar eventos y todo.
             </span>
         `,
         text_3d_ce: `
@@ -994,6 +1204,62 @@ const langData = {
                 Este bloque abre el menú de Balas de la Verdad del jugador, exigiéndole que presente una pieza de evidencia específica para respaldar una afirmación. Lo configuras simplemente seleccionando la bala específica que cuenta como la respuesta correcta. Presentar la evidencia equivocada penalizará la vida del jugador.
             </span>
         `,
+        text_3d_config: 
+        `
+                        <span class="mark">
+                            Este menu de configuracion te lleva a un flujo de edicion diferente del principal donde puedes ingresar los dialogos cuando cometes errores durante el juicio y esta separado del flujo principal<br><br>
+                            y si! puedes cada caracteristica el editor 3D incluyendo la insercion de eventos<br><br>
+                        </span>
+        `,
+        sub_ev_sc: "Funciones de Escena",
+        scene_functions_title: "Funciones Especificas de Escena",
+        scene_functions_text: `
+        <span class="mark">
+            Aparte de los Autoloads Globales, puedes llamar directamente a funciones que pertenecen exclusivamente a la escena actual que estas jugando. Dado que estas funciones solo existen en sus respectivos entornos, debes tener cuidado de no llamar a una funcion 3D mientras estas en una escena 2D, o causara un error.<br><br>
+
+            Para llamarlas usando el Administrador de Dialogos, simplemente escribes el nombre de la funcion directamente usando ' ! ' (Ver como usar funciones en la escena para mas informacion)<br>
+            <code class="inline-code">
+                <span class="c-keyword">! </span> <span class="c-method">Method</span>(<span class="c-string">"Parameter"</span>)
+            </code>
+            <br><br>
+
+            <h3 style="color: #ffcc00;">Funciones de la Escena 2D</h3>
+            Las siguientes funciones solo pueden ejecutarse cuando estas en el entorno de la novela visual (2D):<br><br>
+
+            <code class="inline-code">
+                <span class="c-keyword">final_screen</span>() -> Termina el segmento actual de la novela visual y hace la transicion a la siguiente escena. (Nota: Esto se desactiva automaticamente durante el modo de prueba para evitar cerrar el editor).<br><br>
+            </code>
+            <br>
+
+            <h3 style="color: #ffcc00;">Funciones de la Escena 3D</h3>
+            Las siguientes funciones son exclusivas del entorno 3D del Juicio Escolar. Manejan los minijuegos, el sistema de vida y el progreso del juicio:<br><br>
+
+            <code class="inline-code">
+                <span class="c-keyword">Health_Loss_effects</span>() -> Reproduce el efecto de sonido de recibir dano y sacude violentamente la caja de dialogo.<br><br>
+
+                <span class="c-keyword">Health_loss</span>(life : <span class="c-class">Int</span> = <span class="c-number">15</span>) -> Reduce la barra de vida del jugador por la cantidad especificada (por defecto es 15).<br><br>
+
+                <span class="c-keyword">Health_Recovery</span>() -> Restaura completamente la barra de vida del jugador al 100%.<br><br>
+
+                <span class="c-keyword">Start_Select_Someone</span>(id : <span class="c-class">Int</span>) -> Activa el "Choose Culprit" con un ID. Este ID es el identificador de a quien seleccionas inicialmente (comienza en 0, pero si avanzas de izquierda a derecha el contador aumenta o disminuye y ademas el numero no puede ser negativo si menor a cero entonces selecciona al numero mas grande de la cantidad de personajes que hay disponibles ahora mismo en el juicio).<br><br>
+
+                <span class="c-keyword">Hide_Reticle</span>() -> Oculta suavemente la mira del jugador de la pantalla mediante una transicion de opacidad.<br><br>
+
+                <span class="c-keyword">Trial_End</span>() -> Activa la cinematica final del juicio. Hace zoom hacia el personaje actual, apaga la musica, reproduce la secuencia de cierre y carga la pantalla posterior al juicio.<br><br>
+
+                <span class="c-keyword">Main_menu</span>() -> Sale instantaneamente del juicio actual, restaura el cursor del raton y devuelve al jugador al Menu Principal.<br><br>
+            </code>
+            <br><br>
+        </span>
+        `,
+        sub_ev_bb: "Etiquetas de BBcode",
+        Counter_consent_isee: "Sprites Especiales",
+        Special_Sprites_text: 
+        `
+            <span class="mark">
+                            En esta seccion puedes preparar sprites especiales para el juicio si no hay sprites preparados simplemente no saldra nada en el momento que los uses, ademas permite que le pongas un audio para que se reproduzcan cuando les toca, ten en cuenta que solo los sprites de Counter y I_see seran desbloqueados si el personaje que estas editando es el personaje principal.<br><br>
+                        </span>
+        `
     }
 };
 
