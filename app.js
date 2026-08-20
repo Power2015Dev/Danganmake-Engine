@@ -337,6 +337,10 @@ const langData = {
                     <span class="c-keyword">fade_out</span>(Time : <span class="c-class">Float</span>) -> Performs a screen fade-out transition over the specified time in seconds.<br><br>
 
                     <span class="c-keyword">Trial_Ended</span>() -> Ends the current trial.<br><br>
+
+                     <span class="c-keyword">Change_Mystery_box</span>() -> Changes the default box to the black box with gradients which is used in thoughts, notices, the ends of topics, etc. plus, Portrait gets disabled if you use this.<br><br>
+
+                    <span class="c-keyword">Change_default_box</span>() -> If you used the function to switch to the mystery box, then this function returns you to the default box.<br><br>
                 </code>
                 <br><br>
             </span>
@@ -970,6 +974,10 @@ const langData = {
                     <span class="c-keyword">fade_out</span>(Time : <span class="c-class">Float</span>) -> Realiza un efecto de fundido de salida (fade-out) en la pantalla durante el tiempo especificado en segundos.<br><br>
 
                     <span class="c-keyword">Trial_Ended</span>() -> Finaliza el juicio actual.<br><br>
+
+                     <span class="c-keyword">Change_Mystery_box</span>() -> Cambia la caja predeterminada por una caja negra con gradiente que es usada para pensamientos, avisos, y finales de capitulos. Ademas, Portrait se deshabilita si usas esto.<br><br>
+
+                    <span class="c-keyword">Change_default_box</span>() -> Si usaste la funcion para cambiar a la caja de misterio, entonces esta funcion te devuelve a la caja predeterminada.<br><br>
                 </code>
                 <br><br>
             </span>
