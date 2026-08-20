@@ -43,7 +43,7 @@ const langData = {
         sub_custom_avoid: "What you should avoid",
         sub_shared_config: "Configuration Menu",
         nav_offset: "Character Editor",
-        sub_offset_what: "What is Character Editor?",
+        sub_offset_what: "Character Editor",
         nav_scene: "Using functions on the scene",
         sub_scene_how: "How to use functions in the scene",
         scene2d_btn: "2D Scene",
@@ -445,7 +445,7 @@ const langData = {
                 
                 <b>The Left Panel:</b> Here you can browse between 'Existing Characters' (the base game roster) and 'Your Characters' (custom characters created for your mod). You can use the search bar to easily find a specific character or click the '+ Create New Character' button at the bottom to start from scratch.<br><br>
                 
-                <b>The Right Panel (Editor):</b> Once you select or create a character, this panel activates. You can use the '+ Add sprite' button to select .png or .jpg images from your computer. The 'Sprites List' will show all the expressions the character currently has (marked as EXISTING) and the new ones you are adding. You can click on any sprite to see how it looks in the 'Preview' window. Finally, press the confirmation button at the bottom to save your changes and import the sprites.<br><br>
+                <b>The Right Panel (Editor):</b> Once you select or create a character, this panel activates. You can use the '+ Add sprite' button to select .png or .jpg images from your computer. The 'Sprites List' will show all the expressions the character currently has and the new ones you are adding. Finally, press the confirmation button at the bottom to save your changes and import the sprites.<br><br>
             </span>
             
         `,
@@ -627,6 +627,8 @@ const langData = {
                             In this section, you can prepare special sprites for the trial; if no sprites are prepared, nothing will appear when you use them. You can also assign audio to play when they are triggered. Please note that only the "Counter" and "I_see" sprites will be unlocked if the character you are editing is the main character.<br><br>
                         </span>
         `,
+        configMenu: "Configuration Menu",
+        sub_select_what: "Character Selector",
     },
     es: {
         nav_intro: "Introduccion",
@@ -672,7 +674,7 @@ const langData = {
         sub_shared_usage_3D: "Uso del editor de offset en 3D",
         sub_custom_avoid: "Lo que debes evitar",
         nav_offset: "Editor de Personajes",
-        sub_offset_what: "¿Que es el Editor de Personajes?",
+        sub_offset_what: "Editor de personajes",
         nav_scene: "Usar funciones en la escena",
         sub_scene_how: "Como usar Funciones en la Escena",
         scene2d_btn: "Escena 2D",
@@ -1074,7 +1076,7 @@ const langData = {
                 
                 <b>El Panel Izquierdo:</b> Aquí puedes navegar entre 'Existing Characters' (el elenco del juego base) y 'Your Characters' (personajes personalizados creados para tu mod). Puedes usar la barra de búsqueda para encontrar fácilmente a un personaje específico o hacer clic en el botón '+ Create New Character' en la parte inferior para empezar desde cero.<br><br>
                 
-                <b>El Panel Derecho (Editor):</b> Una vez que seleccionas o creas un personaje, este panel se activa. Puedes usar el botón '+ Add sprite' para seleccionar imágenes .png o .jpg desde tu computadora. La lista de sprites mostrará todas las expresiones que el personaje tiene actualmente (marcadas como EXISTING) y las nuevas que estás añadiendo. Puedes hacer clic en cualquier sprite para ver cómo luce en la ventana de 'Preview' (Vista previa). Finalmente, presiona el botón de confirmación en la parte inferior para guardar tus cambios e importar los sprites.<br><br>
+                <b>El Panel Derecho (Editor):</b> Una vez que seleccionas o creas un personaje, este panel se activa. Puedes usar el botón '+ Add sprite' para seleccionar imagenes .png o .jpg desde tu computadora. La lista de sprites mostrara todas las expresiones que el personaje tiene actualmente y las nuevas que estás añadiendo. Finalmente, presiona el botón de confirmación en la parte inferior para guardar tus cambios e importar los sprites.<br><br>
             </span>
             
         `,
@@ -1259,7 +1261,9 @@ const langData = {
             <span class="mark">
                             En esta seccion puedes preparar sprites especiales para el juicio si no hay sprites preparados simplemente no saldra nada en el momento que los uses, ademas permite que le pongas un audio para que se reproduzcan cuando les toca, ten en cuenta que solo los sprites de Counter y I_see seran desbloqueados si el personaje que estas editando es el personaje principal.<br><br>
                         </span>
-        `
+        `,
+        configMenu: "Menu de configuracion",
+        sub_select_what: "Selector de Personajes",
     }
 };
 
