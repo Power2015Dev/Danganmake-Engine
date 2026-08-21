@@ -375,7 +375,7 @@ main {
     height: 45px;
 }
 
-/* === BOTONES SECUNDARIOS (BALAS) === */
+
 .landing-links {
     display: flex;
     gap: 20px;
@@ -403,6 +403,48 @@ main {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 10px 20px;
     border-radius: 4px;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; 
+    width: 100%;
+}
+
+
+.gamejolt-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #ccff00; 
+    color: #000000; 
+    font-family: 'GoodbyeDespair', Courier, monospace;
+    font-size: 28px;
+    text-decoration: none;
+    padding: 20px 40px;
+    border-radius: 8px;
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.8);
+    transition: all 0.2s ease-in-out;
+}
+
+.gamejolt-btn:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.9);
+    background-color: #d8ff33; 
+}
+
+.gamejolt-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+}
+
+.gamejolt-icon {
+    width: 35px; 
+    height: 45px;
 }
 
 
