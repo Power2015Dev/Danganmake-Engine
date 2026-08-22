@@ -228,13 +228,13 @@ const langData = {
             The repertoire of events that GlobalSound can use are as follows:<br><br>
 
             <code class="inline-code">
-                <span class="c-keyword">Load_SFX</span>(SoundName : <span class="c-string">String</span>) -> it's self explanatory plays a sound by his name only if exist <br><br>
-                <span class="c-keyword">Load_MUSIC</span>(SongName : <span class="c-string">String</span>) -> same goes for music<br><br>
-                <span class="c-keyword">Load_VOICE</span>(VoiceName :<span class="c-string">String</span>) -> also same goes for voices one details is this only can play custom voices of your current roster<br><br>
-                <span class="c-keyword">Stop_SFX</span>() -> if an sfx is playing it will stop it<br><br>
-                <span class="c-keyword">Stop_MUSIC</span>() -> same goes for music<br><br>
-                <span class="c-keyword">Stop_FadeOut_MUSIC</span>() -> It will cause the music to fade out over a duration of 0.7 seconds.<br><br>
-                <span class="c-keyword">Stop_VOICE</span>() -> same goes for voices<br><br>
+                <span class="c-keyword">Load_SFX</span>(SoundName : <span class="c-string">String</span>) -> plays a sound by his name only if exist.<br><br>
+                <span class="c-keyword">Load_MUSIC</span>(SongName : <span class="c-string">String</span>) -> plays a music by his name only if exist.<br><br>
+                <span class="c-keyword">Load_VOICE</span>(VoiceName :<span class="c-string">String</span>) -> plays a voice of your current roster Also, be careful when using the event to avoid duplicate voice filenames; for example, if "voice1.ogg" already exists and you assign a voice with the same name "voice1.ogg" to another character, one of them will be replaced by the one that loads last.<br><br>
+                <span class="c-keyword">Stop_SFX</span>() -> if an sfx is playing it will stop it.<br><br>
+                <span class="c-keyword">Stop_MUSIC</span>() -> if a music is playing it will stop it.<br><br>
+                <span class="c-keyword">Stop_FadeOut_MUSIC</span>(Time : <span class="c-class">Float</span> = <span class="c-number">0.9</span>) -> It will cause the music to fade out over a duration of 0.9 seconds.<br><br>
+                <span class="c-keyword">Stop_VOICE</span>() -> if a voice is playing it will stop it.<br><br>
                 <span class="c-keyword">Pitch_Voice</span>(Pitch : <span class="c-class">Float</span> = <span class="c-number">1.0</span>) -> If there is a voice playing right now, this function will change its pitch, this indirectly also changes its speed due to the pitch<br><br>
             </code>
             <br><br>
@@ -865,12 +865,12 @@ const langData = {
 
             <code class="inline-code">
             <span class="c-keyword">Load_SFX</span>(SoundName : <span class="c-string">String</span>) -> reproduce un sonido por su nombre solo si existe.<br><br>
-            <span class="c-keyword">Load_MUSIC</span>(SongName : <span class="c-string">String</span>) -> lo mismo aplica para la musica<br><br>
-            <span class="c-keyword">Load_VOICE</span>(VoiceName :<span class="c-string">String</span>) -> tambien aplica para las voces. Un detalle importante es que solo puede reproducir voces personalizadas de tu lista actual<br><br>
-            <span class="c-keyword">Stop_SFX</span>() -> si se esta reproduciendo un efecto de sonido, lo detendra<br><br>
-            <span class="c-keyword">Stop_MUSIC</span>() -> lo mismo aplica para la musica<br><br>
-            <span class="c-keyword">Stop_FadeOut_MUSIC</span>() -> Causara un desvanecimiento de la musica, lo que se desvanecera durante una duración de 0.7 segundos.<br><br>
-            <span class="c-keyword">Stop_VOICE</span>() -> lo mismo aplica para las voces<br><br>
+            <span class="c-keyword">Load_MUSIC</span>(SongName : <span class="c-string">String</span>) -> reproduce una cancion por su nombre solo si existe.<br><br>
+            <span class="c-keyword">Load_VOICE</span>(VoiceName :<span class="c-string">String</span>) -> reproduce una voz de tu roster actual Ademas tengan cuidado al usar el evento, no hayan nombres de voces repetidos ejemplo si existe voice1.ogg y en otro personaje tambien pones una voz que se llame igual voice1.ogg entonces una de ellas sera remplazada por la que cargue de ultimo.<br><br>
+            <span class="c-keyword">Stop_SFX</span>() -> si se esta reproduciendo un efecto de sonido, lo detendra.<br><br>
+            <span class="c-keyword">Stop_MUSIC</span>() -> si se esta reproduciendo una cancion, lo detendra.<br><br>
+            <span class="c-keyword">Stop_FadeOut_MUSIC</span>(Time : <span class="c-class">Float</span> = <span class="c-number">0.9</span>) -> Causara un desvanecimiento de la musica, lo que se desvanecera durante una duración de 0.9 segundos.<br><br>
+            <span class="c-keyword">Stop_VOICE</span>() -> si se esta reproduciendo una voz, lo detendra.<br><br>
             <span class="c-keyword">Pitch_Voice</span>(Pitch : <span class="c-class">Float</span> = <span class="c-number">1.0</span>) -> Si hay una voz reproduciendose en este momento, esta funcion cambiara su tono, lo que indirectamente tambien cambia su velocidad debido al tono.<br><br>
             </code>
             <br><br>
